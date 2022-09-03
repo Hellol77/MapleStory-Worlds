@@ -63,9 +63,11 @@ header {
   margin-bottom: 60px;
   justify-content: space-between;
   margin-top: 40px;
+  font-size: 20px;
 }
 .sidebar__title-logout {
   font-weight: 400;
+  font-size: 14px;
 }
 .sidebar__main {
   width: 75%;
@@ -94,8 +96,21 @@ header {
   align-items: center;
   justify-content: center;
 }
-#1 {
+
+.color1 {
   background-color: #f195bf;
+}
+.color2 {
+  background-color: #d0de73;
+}
+.color3 {
+  background-color: #ffe432;
+}
+.color4 {
+  background-color: #65cdf3;
+}
+.color5 {
+  background-color: #f5ac86;
 }
 .overlay {
   position: fixed;
