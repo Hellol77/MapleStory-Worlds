@@ -1,0 +1,87 @@
+body {
+  height: 100vh;
+}
+.wrap {
+  min-height: 100%;
+  position: relative;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section__title {
+  width: 150px;
+  height: 36px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 110px;
+}
+.section-line {
+  border-bottom: 1px solid #d9d9d9;
+  width: 500px;
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
+.section__form {
+  display: flex;
+  flex-direction: column;
+}
+.section__form-box {
+  display: flex;
+  flex-direction: column;
+}
+.section__form-input {
+  width: 355px;
+  height: 36px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #d9d9d9;
+}
+.submit-button {
+  width: 376px;
+  height: 36px;
+  background-color: white;
+  border: 2px solid #d9d9d9;
+  transition: all 0.3s;
+}
+.submit-button:hover {
+  background-color: #d9d9d9;
+}
+label {
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+footer {
+  background-color: #1a1a1a;
+  width: 100vw;
+  height: 220px;
+  border-bottom: 1px solid #d9d9d9;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-text {
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 11px;
+  margin-left: 42px;
+}
+.up-text {
+  margin-top: 55px;
+  margin-bottom: 15px;
+}
+.footer__img-box {
+  margin-left: 42px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.likelion-img {
+  margin-left: 40px;
+  margin-bottom: 8px;
+}
