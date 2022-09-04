@@ -1,6 +1,5 @@
-html{
-height: 100vh;
-
+html {
+  height: 100vh;
 }
 body {
   height: 100%;
@@ -74,6 +73,7 @@ section {
   letter-spacing: 2px;
   user-select: none;
   -webkit-user-select: none;
+  transition: all 0.4s;
 }
 .content {
   display: flex;
