@@ -14,7 +14,9 @@
     <div class="wrap">
       <header>
         <div class="header__left">
-          <a class="header__left__title">MapleStory Worlds Super Hackathon</a>
+          <a class="header__left__title" href="index.html"
+            >MapleStory Worlds Super Hackathon</a
+          >
           <a class="header__left__sub-title">미션 등록하기</a>
           <a class="header__left__sub-title">미션 확인하기</a>
         </div>
@@ -46,14 +48,38 @@
           method="POST"
           enctype="multipart/form-data"
         >
-          <div class="register-img">
-            <p class="alertWord">팀당 한 명(팀장)만 등록해주시기 바랍니다.</p>
-            <p class="alertWord">최적 이미지 비율은 7:4 입니다.</p>
+          <div class="main__title">MapleStory Worlds Super Hackathon</div>
+          <div class="main-button">
+            <input type="radio" id="tab-1" name="show" checked />
+            <input type="radio" id="tab-2" name="show" />
+            <input type="radio" id="tab-3" name="show" />
+            <input type="radio" id="tab-4" name="show" />
+            <input type="radio" id="tab-5" name="show" />
+            <div class="tab">
+              <label for="tab-1"></label>
+              <label for="tab-2"></label>
+              <label for="tab-3"></label>
+              <label for="tab-4"></label>
+              <label for="tab-5"></label>
+            </div>
+          </div>
+          <div class="main-subtext">
+            <div class="main-subtext-title">첫 번째 미션</div>
+            <div class="main-subtext-content">
+              <br />
+              메이플 스토리 월드에 콘텐츠를 출시할 크리에이터가될 당신!
+              <br /><br />콘텐츠를 출시하기 이전, 콘텐츠를 탐색하고 가장
+              재미있거나 감명깊었던 콘텐츠의 월드 제목과 감명깊었던 이유를 팀원
+              한 명당 4줄 이상 작성해 제출해주시기 바랍니다. (기한: 10월
+              16일(금) 오전 10시까지) <br /><br />
+              ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
+              감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+            </div>
           </div>
           <label class="labelClass" for="id_team_name">팀명</label>
           <input
             type="text"
-            class="form-control text-input"
+            class="text-input"
             id="id_team_name"
             name="team_name"
             value="{{team_name}}"
@@ -62,36 +88,37 @@
           <label class="labelClass" for="id_team_members">팀원</label>
           <input
             type="text"
-            class="form-control text-input"
+            class="text-input"
             id="id_team_members"
             name="team_members"
             value="{{team_members}}"
             maxlength="17"
           />
-          <label class="labelClass" for="id_intro_text"
-            >소개 (300자 제한)</label
-          >
+          <label class="labelClass" for="id_intro_text">미션 설명</label>
           <textarea
             type="text"
-            class="form-control large-text-input"
+            class="large-text-input"
             id="id_intro_text"
             name="intro_text"
             maxlength="300"
           ></textarea>
-
-          <div class="main-file-input-box">
-            <div class="img-title">
-              이미지 업로드 (이미지는 네 장까지 업로드 가능합니다.)
+          <div class="main__subtext">
+            <div class="main__subtext-title">이미지 업로드 방법</div>
+            <div class="main__subtext-content">
+              이미지 업로드 (이미지는 네 장까지 업로드 가능합니다.)<br />
+              이미지 파일 이름은 팀명_첫번째미션_n으로 작성 바랍니다.
             </div>
+          </div>
+          <div class="main-file-input-box">
             <div class="file-input-box">
               <div class="filebox">
                 <label for="id_image1">
                   <img class="file-label-img" src="img/Link.png" alt="upload" />
-                  페이지 Preview 등록
+                  썸네일 등록
                 </label>
                 <input
                   type="file"
-                  class="form-control file-input"
+                  class="file-input"
                   id="id_image1"
                   name="image1"
                 />
@@ -110,7 +137,7 @@
                 </label>
                 <input
                   type="file"
-                  class="form-control file-input"
+                  class="file-input"
                   id="id_image2"
                   name="image2"
                 />
@@ -130,7 +157,7 @@
                 </label>
                 <input
                   type="file"
-                  class="form-control file-input"
+                  class="file-input"
                   id="id_image3"
                   name="image3"
                 />
@@ -149,7 +176,7 @@
                 </label>
                 <input
                   type="file"
-                  class="form-control file-input"
+                  class="file-input"
                   id="id_image4"
                   name="image4"
                 />
@@ -163,6 +190,7 @@
               </div>
             </div>
           </div>
+
           <div class="submit-button-box">
             <button class="submit-button" type="submit">등록하기</button>
           </div>
@@ -216,6 +244,15 @@
         .val()
         .replace(/C:\\fakepath\\/i, "");
       $("#upload-name-4").val(fileName);
+    });
+    $("#sidebarCollapse").on("click", function () {
+      $("#sidebar").addClass("active");
+      $(".overlay").fadeIn();
+    });
+
+    $(".overlay").on("click", function () {
+      $("#sidebar").removeClass("active");
+      $(".overlay").fadeOut();
     });
   </script>
 </html>

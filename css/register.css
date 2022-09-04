@@ -15,7 +15,7 @@ body * {
 
 section {
   display: flex;
-  height: 100%;
+
   flex-direction: column;
   align-items: center;
 }
@@ -23,9 +23,73 @@ section {
 form {
   display: flex;
   flex-direction: column;
-  color: rgb(113, 128, 150);
 }
-
+.main__title {
+  font-weight: 700;
+  width: 150px;
+  text-align: center;
+  color: black;
+  margin-top: 40px;
+}
+.main-button input[type="radio"] {
+  display: none;
+}
+#tab-1:checked ~ .tab label:nth-child(1),
+#tab-2:checked ~ .tab label:nth-child(2),
+#tab-3:checked ~ .tab label:nth-child(3),
+#tab-4:checked ~ .tab label:nth-child(4),
+#tab-5:checked ~ .tab label:nth-child(5) {
+  height: 16px;
+  box-shadow: none;
+  margin-top: 0;
+}
+.tab label {
+  cursor: pointer;
+  float: left;
+  width: 80px;
+  height: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  user-select: none;
+  margin-top: 8px;
+  -webkit-user-select: none;
+}
+.tab label:nth-child(1) {
+  background-color: #ee7aae;
+}
+.tab label:nth-child(2) {
+  background-color: #c6d74f;
+}
+.tab label:nth-child(3) {
+  background-color: #ffdd04;
+}
+.tab label:nth-child(4) {
+  background-color: #40c0f0;
+}
+.tab label:nth-child(5) {
+  background-color: #f39769;
+}
+input:focus {
+  outline: none;
+}
+textarea:focus {
+  outline: none;
+}
+.main-subtext {
+  width: 853px;
+  background-color: #f1f1f1;
+}
+.main-subtext-title {
+  font-weight: 700;
+  color: black;
+  font-size: 14px;
+}
+.main-subtext-content {
+  color: black;
+  font-size: 14px;
+}
 .imgPointer {
   cursor: pointer;
 }
@@ -36,48 +100,51 @@ form {
 }
 
 .text-input {
-  border-radius: 10px;
+  width: 810px;
   height: 40px;
   margin-bottom: 2rem;
   padding-left: 20px;
   padding-right: 20px;
+  border: 2px solid #d9d9d9;
 }
 .large-text-input {
-  border-radius: 10px;
-  width: 1000px;
-  height: 5rem;
+  width: 810px;
+  height: 480px;
+  border: 2px solid #d9d9d9;
   margin-bottom: 2rem;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
-}
-.img-title {
-  margin-bottom: 1rem;
+  resize: none;
 }
 .file-input-box {
   display: grid;
-  grid-template-columns: 400px 400px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3rem 3rem;
 }
 .filebox {
   display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 .filebox label {
   display: inline-block;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
-  font-weight: 600;
+  width: 160px;
+  font-weight: 400;
   height: 35px;
-  font-size: 10px;
+  font-size: 12px;
   border: 1px solid #d9d9d9;
   color: black;
   vertical-align: middle;
   background-color: white;
   cursor: pointer;
 }
+
 .filebox input[type="file"] {
   position: absolute;
   width: 0;
@@ -93,17 +160,35 @@ form {
 }
 .upload-name {
   height: 35px;
-  font-size: 18px;
-  padding: 0 10px;
+  font-size: 14px;
+  padding: 0 20px;
   vertical-align: middle;
   background-color: white;
   color: black;
   border: none;
 }
+
+.main__subtext {
+  width: 853px;
+  height: 100px;
+  background-color: #f1f1f1;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+.main__subtext-title {
+  font-weight: 700;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+.main__subtext-content {
+  margin-left: 30px;
+  margin-top: 10px;
+}
 .submit-button {
   color: white;
   width: 250px;
   height: 4rem;
+
   font-size: 20px;
   border: none;
   border-radius: 50px;
@@ -130,9 +215,6 @@ input::placeholder {
   .form {
     justify-content: center;
     align-items: center;
-  }
-  .register-img img {
-    width: 300px;
   }
   .text-input {
     width: 300px;
