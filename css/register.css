@@ -83,7 +83,7 @@ form {
 #group-tab-2:checked ~ .group-tab label:nth-child(2),
 #group-tab-3:checked ~ .group-tab label:nth-child(3),
 #group-tab-4:checked ~ .group-tab label:nth-child(4) {
-  background-color: #6d6c6c;
+  background-color: #c6d74f;
 }
 .group-tab label {
   display: flex;
