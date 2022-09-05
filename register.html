@@ -17,7 +17,9 @@
           <a class="header__left__title" href="index.html"
             >MapleStory Worlds Super Hackathon</a
           >
-          <a class="header__left__sub-title" href="/register.html">미션 등록하기</a>
+          <a class="header__left__sub-title" href="/register.html"
+            >미션 등록하기</a
+          >
           <a class="header__left__sub-title">미션 확인하기</a>
         </div>
         <!-- 로그인 완료 했을때 코드 -->
@@ -50,11 +52,11 @@
         >
           <div class="main__title">MapleStory Worlds Super Hackathon</div>
           <div class="main-button">
-            <input type="radio" id="tab-1" name="show" checked />
-            <input type="radio" id="tab-2" name="show" />
-            <input type="radio" id="tab-3" name="show" />
-            <input type="radio" id="tab-4" name="show" />
-            <input type="radio" id="tab-5" name="show" />
+            <input type="radio" id="tab-1" name="show" value="1" checked />
+            <input type="radio" id="tab-2" name="show" value="2" />
+            <input type="radio" id="tab-3" name="show" value="3" />
+            <input type="radio" id="tab-4" name="show" value="4" />
+            <input type="radio" id="tab-5" name="show" value="5" />
             <div class="tab">
               <label for="tab-1"></label>
               <label for="tab-2"></label>
@@ -70,12 +72,33 @@
               메이플 스토리 월드에 콘텐츠를 출시할 크리에이터가될 당신!
               <br /><br />콘텐츠를 출시하기 이전, 콘텐츠를 탐색하고 가장
               재미있거나 감명깊었던 콘텐츠의 월드 제목과 감명깊었던 이유를 팀원
-              한 명당 4줄 이상 작성해 제출해주시기 바랍니다. (기한: 10월
+              한 명당 4줄 <br />이상 작성해 제출해주시기 바랍니다. (기한: 10월
               16일(금) 오전 10시까지) <br /><br />
               ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
               감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
             </div>
           </div>
+
+          <label>소속 그룹</label>
+          <div class="group-tab-button">
+            <input
+              id="group-tab-1"
+              name="group"
+              type="radio"
+              value="A"
+              checked
+            />
+            <input id="group-tab-2" name="group" type="radio" value="B" />
+            <input id="group-tab-3" name="group" type="radio" value="C" />
+            <input id="group-tab-4" name="group" type="radio" value="D" />
+            <div class="group-tab">
+              <label for="group-tab-1">A</label>
+              <label for="group-tab-2">B</label>
+              <label for="group-tab-3">C</label>
+              <label for="group-tab-4">D</label>
+            </div>
+          </div>
+
           <label class="labelClass" for="id_team_name">팀명</label>
           <input
             type="text"

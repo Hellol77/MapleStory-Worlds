@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/check.css" />
+    <title>MapleStory Worlds</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header__left">
+          <a class="header__left__title">MapleStory Worlds Super Hackathon</a>
+          <a class="header__left__sub-title">미션 등록하기</a>
+          <a class="header__left__sub-title">미션 확인하기</a>
+        </div>
+        <!-- 로그인 안했을 떄 -->
+        <!-- <a href="/login.html" class="header__right">
+        <button class="header__right__button">로그인</button>
+      </a> -->
+        <!-- 로그인 완료 했을때 코드 -->
+        <div class="header__right is-login" id="sidebarCollapse">
+          이름님, 안녕하세요.
+        </div>
+        <nav id="sidebar">
+          <div class="sidebar-title">
+            <div class="sidebar__title-name">이름</div>
+            <a class="sidebar__title-logout">로그아웃</a>
+          </div>
+          <div class="sidebar__main">
+            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-line"></div>
+            <a class="sidebar__main-button color1">첫 번째 미션</a>
+            <a class="sidebar__main-button color2">두 번째 미션</a>
+            <a class="sidebar__main-button color3">세 번째 미션</a>
+            <a class="sidebar__main-button color4">네 번째 미션</a>
+            <a class="sidebar__main-button color5">다섯 번째 미션</a>
+          </div>
+        </nav>
+        <div class="overlay"></div>
+      </header>
+      <section>
+        <div class="main-title-box">
+          <div class="main-title">미션 갤러리</div>
+          <div class="main-text">
+            이 페이지에서 여러분들이 제출한 미션과 다른 팀이 제출한 미션을
+            확인해보실 수 있습니다!
+          </div>
+        </div>
+        <div class="main-button">
+          <input type="radio" id="tab-1" name="show" value="1" checked />
+          <input type="radio" id="tab-2" name="show" value="2" />
+          <input type="radio" id="tab-3" name="show" value="3" />
+          <input type="radio" id="tab-4" name="show" value="4" />
+          <input type="radio" id="tab-5" name="show" value="5" />
+          <div class="tab">
+            <label for="tab-1"></label>
+            <label for="tab-2"></label>
+            <label for="tab-3"></label>
+            <label for="tab-4"></label>
+            <label for="tab-5"></label>
+          </div>
+        </div>
+        <div class="main-line"></div>
+        <div class="main-subtitle">첫 번째 미션</div>
+        <div class="group-tab-button">
+          <input id="group-tab-1" name="group" type="radio" value="A" checked />
+          <input id="group-tab-2" name="group" type="radio" value="B" />
+          <input id="group-tab-3" name="group" type="radio" value="C" />
+          <input id="group-tab-4" name="group" type="radio" value="D" />
+          <div class="group-tab">
+            <label for="group-tab-1">A</label>
+            <label for="group-tab-2">B</label>
+            <label for="group-tab-3">C</label>
+            <label for="group-tab-4">D</label>
+          </div>
+        </div>
+        
+      </section>
+      <footer>
+        <div class="footer-text up-text">
+          ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
+          전화 : 1588-7701 팩스 : 0502-258-8322<br />
+          E-mail : contact-us@nexon.co.kr 사업자등록번호 : 220-87-17483호
+          통신판매업 신고번호 : 제2013-경기성남-1659호 사업자정보확인 <br />@
+          NEXON Korea Corporation All Rights Reserved.
+        </div>
+        <div class="footer-text">
+          이용약관 | 개인정보처리방침 | 환불규정<br />
+          상호명: 멋쟁이사자처럼 | 대표: 이두희works@likelion.net | 사업자 번호
+          : 264-88-01106<br />
+          통신판매업 신고번호 : 2019 - 서울강남 - 00774 | 주소 : 서울 종로구
+          종로3길17, 광화문D타워 D1동 16층, 17층 <br />Copyright © 2022
+          멋쟁이사자처럼 All rights reserved.
+        </div>
+        <div class="footer__img-box">
+          <img src="img/nexon.png" alt="NEXON" />
+          <img src="img/likelion.png" alt="likelion" class="likelion-img" />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -71,6 +71,39 @@ form {
 .tab label:nth-child(5) {
   background-color: #f39769;
 }
+
+.group-tab-button input[type="radio"] {
+  display: none;
+}
+.group-tab-button {
+  margin-bottom: 30px;
+}
+
+#group-tab-1:checked ~ .group-tab label:nth-child(1),
+#group-tab-2:checked ~ .group-tab label:nth-child(2),
+#group-tab-3:checked ~ .group-tab label:nth-child(3),
+#group-tab-4:checked ~ .group-tab label:nth-child(4) {
+  background-color: #6d6c6c;
+}
+.group-tab label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-right: 5px;
+  background-color: #d9d9d9;
+  font-weight: 700;
+  cursor: pointer;
+  float: left;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+  margin-top: 8px;
+  -webkit-user-select: none;
+}
+
 input:focus {
   outline: none;
 }
@@ -96,6 +129,10 @@ textarea:focus {
   color: black;
   font-size: 14px;
   margin-left: 30px;
+}
+
+.main-select-group {
+  display: flex;
 }
 .imgPointer {
   cursor: pointer;
