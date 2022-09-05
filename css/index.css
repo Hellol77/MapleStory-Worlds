@@ -36,7 +36,8 @@ section {
 }
 #tab-1:checked ~ .tab label:nth-child(1),
 #tab-2:checked ~ .tab label:nth-child(2),
-#tab-3:checked ~ .tab label:nth-child(3) {
+#tab-3:checked ~ .tab label:nth-child(3),
+#tab-4:checked ~ .tab label:nth-child(4) {
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
 }
@@ -45,7 +46,8 @@ section {
 }
 #tab-1:checked ~ .content div:nth-child(1),
 #tab-2:checked ~ .content div:nth-child(2),
-#tab-3:checked ~ .content div:nth-child(3) {
+#tab-3:checked ~ .content div:nth-child(3),
+#tab-4:checked ~ .content div:nth-child(4) {
   display: flex;
 }
 .main-button {
