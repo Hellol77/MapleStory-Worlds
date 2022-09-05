@@ -130,3 +130,72 @@ section {
   margin-top: 8px;
   -webkit-user-select: none;
 }
+
+.main-gallery {
+  display: grid;
+  width: 960px;
+  grid-column-gap: 5px;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.main-gallery__box {
+  border: 1px solid #d9d9d9;
+  width: 235px;
+  height: 320px;
+}
+
+.main-gallery-img {
+  width: 100%;
+  height: 240px;
+}
+
+.main-gallery-text {
+  background-color: #f1f1f1;
+  height: 80px;
+  width: 100%;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.main-gallery-team {
+  margin-left: 15px;
+  padding-top: 15px;
+}
+.main-gallery-name {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.main-pagenation-box {
+  background-color: #f1f1f1;
+  width: 960px;
+  height: 55px;
+  margin-top: 60px;
+  margin-bottom: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-pagenum {
+  width: 24px;
+  height: 36px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 2.5px;
+  border: none;
+}
+
+/* @media screen and (max-width: 767px) {
+  .main-gallery {
+    grid-template-columns: 1fr 1fr;
+    width: 80vw;
+  }
+  .main-gallery__box {
+    width: 30vw;
+    height: 200px;
+  }
+  
+} */
