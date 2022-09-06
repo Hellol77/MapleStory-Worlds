@@ -112,7 +112,7 @@ textarea:focus {
 }
 .main-subtext {
   width: 853px;
-  height: 160px;
+  line-height: 18px;
   background-color: #f1f1f1;
   margin-bottom: 40px;
   display: flex;
@@ -124,11 +124,18 @@ textarea:focus {
   color: black;
   font-size: 14px;
   margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .main-subtext-content {
   color: black;
   font-size: 14px;
   margin-left: 30px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+}
+.main-bold {
+  font-weight: 700;
 }
 
 .main-select-group {
@@ -212,7 +219,7 @@ textarea:focus {
   border: none;
 }
 
-.main__subtext {
+.main__submethod {
   width: 853px;
   height: 100px;
   background-color: #f1f1f1;
@@ -222,11 +229,11 @@ textarea:focus {
   flex-direction: column;
   justify-content: center;
 }
-.main__subtext-title {
+.main__submethod-title {
   font-weight: 700;
   margin-left: 30px;
 }
-.main__subtext-content {
+.main__submethod-content {
   margin-left: 30px;
   margin-top: 10px;
 }
