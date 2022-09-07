@@ -77,10 +77,10 @@
           <input id="group-tab-3" name="group" type="radio" value="C" />
           <input id="group-tab-4" name="group" type="radio" value="D" />
           <div class="group-tab">
-            <label for="group-tab-1">A</label>
-            <label for="group-tab-2">B</label>
-            <label for="group-tab-3">C</label>
-            <label for="group-tab-4">D</label>
+            <label for="group-tab-1" id="A">A</label>
+            <label for="group-tab-2" id="B">B</label>
+            <label for="group-tab-3" id="C">C</label>
+            <label for="group-tab-4" id="D">D</label>
           </div>
         </div>
         <div class="main-gallery">
@@ -141,6 +141,21 @@
     $(".overlay").on("click", function () {
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
+    });
+    $("#tab-1").on("click", function () {
+      $("#group-tab-1").prop("checked", true);
+    });
+    $("#tab-2").on("click", function () {
+      $("#group-tab-1").prop("checked", true);
+    });
+    $("#tab-3").on("click", function () {
+      $("#group-tab-1").prop("checked", true);
+    });
+    $("#tab-4").on("click", function () {
+      $("#group-tab-1").prop("checked", true);
+    });
+    $("#tab-5").on("click", function () {
+      $("#group-tab-1").prop("checked", true);
     });
   </script>
 </html>
