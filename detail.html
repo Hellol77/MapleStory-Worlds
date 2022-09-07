@@ -79,8 +79,41 @@
           </div>
         </div>
 
-        <div class="content">
-          <div class="content-member">
+        <div class="content-box">
+          <div class="confirm">
+            <div class="confirm-title">미션 삭제</div>
+            <div class="confirm-line"></div>
+            <div class="confirm-message">삭제하시겠습니까?</div>
+            <div class="confirm-answer-box">
+              <div class="confirm-answer no">아니오</div>
+              <!-- 실제 삭제 버튼 -->
+              <button class="confirm-answer yes">네</button>
+            </div>
+          </div>
+          <div class="content padding-top">
+            <div class="content__title">
+              <div class="content__title-text">
+                TITLE
+                <span class="content__subtitle">
+                  <!-- 조 이름과 제목 넣을곳 -->
+                  첫 번째 미션 제출</span
+                >
+              </div>
+              <!-- 수정 삭제 버튼 자신이 만든 게시글에서만 -->
+              <div class="content-edit-box">
+                <div class="content-edit">수정</div>
+                <div class="content-edit delete submit-button">삭제</div>
+              </div>
+            </div>
+            <div class="content-line"></div>
+            <div class="content__text">
+              제출일시
+              <span class="content__subtitle"
+                ><!-- 시간 넣을 곳 -->2022.9.4</span
+              >
+            </div>
+          </div>
+          <div class="content">
             <div class="content__title">PEER GROUP MEMBER</div>
             <div class="content-line"></div>
             <div class="content__text">
@@ -89,7 +122,7 @@
               팀원 :
             </div>
           </div>
-          <div class="content-description">
+          <div class="content">
             <div class="content__title">MISSION DESCRIPTION</div>
             <div class="content-line"></div>
             <div class="content__text">
@@ -105,6 +138,7 @@
           <a href="check.html" class="move-check-button">목록으로</a>
         </div>
       </section>
+      <div class="confirm-overlay"></div>
       <footer>
         <div class="footer-text up-text">
           ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
@@ -138,6 +172,14 @@
     $(".overlay").on("click", function () {
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
+    });
+    $(".submit-button").on("click", function () {
+      $(".confirm").addClass("active");
+      $(".confirm-overlay").fadeIn();
+    });
+    $(".no").on("click", function () {
+      $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
     });
   </script>
 </html>

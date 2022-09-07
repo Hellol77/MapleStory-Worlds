@@ -103,7 +103,7 @@ section {
   width: 100vw;
 }
 
-.content {
+.content-box {
   width: 100%;
   height: 860px;
   overflow: auto;
@@ -113,12 +113,10 @@ section {
   font-size: 14px;
   margin-bottom: 40px;
 }
-.content-member {
-  padding: 30px;
+.content {
+  padding: 20px;
 }
-.content-description {
-  padding: 30px;
-}
+
 .content__text {
   font-size: 400;
   line-height: 21px;
@@ -129,8 +127,34 @@ section {
   margin-bottom: 20px;
 }
 .content__title {
+  display: flex;
+  align-items: flex-end;
   font-weight: 700;
   width: 100%;
+  justify-content: space-between;
+}
+.content-edit-box {
+  font-weight: 400;
+  display: flex;
+  margin-top: 10px;
+}
+.content-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 36px;
+  border: 2px solid #d9d9d9;
+}
+.padding-top {
+  padding-top: 0px;
+}
+.delete {
+  margin-left: 5px;
+}
+.content__subtitle {
+  font-weight: 400;
+  margin-left: 17px;
 }
 
 .next-prev {
@@ -167,4 +191,61 @@ section {
   margin-left: 6px;
   margin-top: 13px;
   margin-bottom: 100px;
+}
+.confirm {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 16px;
+  width: 320px;
+  height: 140px;
+  color: white;
+  background-color: #313131;
+  font-size: 12px;
+  font-weight: 400;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.confirm.active {
+  display: flex;
+}
+.confirm-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.confirm-line {
+  border: 1px solid #d9d9d9;
+  width: 80%;
+  margin-bottom: 20px;
+}
+.confirm-answer-box {
+  display: flex;
+  width: 90%;
+}
+.confirm-answer {
+  width: 50%;
+  margin-top: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 32px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yes {
+  background-color: #ffb62a;
+  color: black;
+  margin-left: 10px;
+}
+.confirm-overlay {
+  display: none;
+  position: fixed;
+  z-index: 998;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
