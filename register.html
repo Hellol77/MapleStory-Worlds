@@ -34,10 +34,10 @@
           <div class="sidebar__main">
             <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
             <div class="sidebar__main-line"></div>
-            <a class="sidebar__main-button color1" id="1-color">첫 번째 미션</a>
-            <a class="sidebar__main-button color2" id="2-color">두 번째 미션</a>
-            <a class="sidebar__main-button color3" id="3-color">세 번째 미션</a>
-            <a class="sidebar__main-button color4" id="4-color">네 번째 미션</a>
+            <a class="sidebar__main-button color1">첫 번째 미션</a>
+            <a class="sidebar__main-button color2">두 번째 미션</a>
+            <a class="sidebar__main-button color3">세 번째 미션</a>
+            <a class="sidebar__main-button color4">네 번째 미션</a>
             <a class="sidebar__main-button color5">다섯 번째 미션</a>
           </div>
         </nav>
@@ -315,10 +315,20 @@
           </div>
 
           <div class="submit-button-box">
-            <button class="submit-button" type="submit">등록하기</button>
+            <div class="submit-button">등록하기</div>
+          </div>
+          <div class="confirm">
+            <div class="confirm-title">미션 제출</div>
+            <div class="confirm-line"></div>
+            <div class="confirm-message">이대로 제출하시겠습니까?</div>
+            <div class="confirm-answer-box">
+              <div class="confirm-answer no">아니오</div>
+              <button type="submit" class="confirm-answer yes">네</button>
+            </div>
           </div>
         </form>
       </section>
+      <div class="confirm-overlay"></div>
       <footer>
         <div class="footer-text up-text">
           ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
@@ -376,6 +386,15 @@
     $(".overlay").on("click", function () {
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
+    });
+
+    $(".submit-button").on("click", function () {
+      $(".confirm").addClass("active");
+      $(".confirm-overlay").fadeIn();
+    });
+    $(".no").on("click", function () {
+      $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
     });
   </script>
 </html>

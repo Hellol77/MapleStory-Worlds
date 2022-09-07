@@ -238,6 +238,9 @@ textarea:focus {
   margin-top: 10px;
 }
 .submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: black;
   width: 160px;
   height: 36px;
@@ -267,6 +270,64 @@ textarea:focus {
 input::placeholder {
   font-size: 14px;
   font-weight: 400;
+}
+
+.confirm {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 16px;
+  width: 320px;
+  height: 140px;
+  color: white;
+  background-color: #313131;
+  font-size: 12px;
+  font-weight: 400;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.confirm.active {
+  display: flex;
+}
+.confirm-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.confirm-line {
+  border: 1px solid #d9d9d9;
+  width: 80%;
+  margin-bottom: 20px;
+}
+.confirm-answer-box {
+  display: flex;
+  width: 90%;
+}
+.confirm-answer {
+  width: 50%;
+  margin-top: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 32px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.yes {
+  background-color: #ffb62a;
+  color: black;
+  margin-left: 10px;
+}
+.confirm-overlay {
+  display: none;
+  position: fixed;
+  z-index: 998;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 @media screen and (max-width: 767px) {
   .form {
