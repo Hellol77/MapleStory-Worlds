@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'board/css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/check.css' %}" />
+    <title>MapleStory Worlds</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header__left">
+          <a class="header__left__title" href="/"
+            >MapleStory Worlds Super Hackathon</a
+          >
+          <a class="header__left__sub-title" href="../register"
+            >미션 등록하기</a
+          >
+          <a class="header__left__sub-title" href=".">미션 확인하기</a>
+        </div>
+        <!-- 로그인 안했을 떄 -->
+        <!-- <a href="/login.html" class="header__right">
+        <button class="header__right__button">로그인</button>
+      </a> -->
+        {% if user.is_active %}
+        <!-- 로그인 완료 했을때 코드 -->
+        <div class="header__right is-login" id="sidebarCollapse">
+          {{user.name}}님, 안녕하세요.
+        </div>
+        {% else %}
+        <!-- 로그인 안했을 떄 -->
+        <a href="./login" class="header__right">
+          <button class="header__right__button">로그인</button>
+        </a> 
+        {% endif %}
+        <nav id="sidebar">
+          <div class="sidebar-title">
+            <div class="sidebar__title-name">이름</div>
+            <a class="sidebar__title-logout">로그아웃</a>
+          </div>
+          <div class="sidebar__main">
+            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-line"></div>
+            <a class="sidebar__main-button color1">첫 번째 미션</a>
+            <a class="sidebar__main-button color2">두 번째 미션</a>
+            <a class="sidebar__main-button color3">세 번째 미션</a>
+            <a class="sidebar__main-button color4">네 번째 미션</a>
+            <a class="sidebar__main-button color5">다섯 번째 미션</a>
+          </div>
+        </nav>
+        <div class="overlay"></div>
+      </header>
+      <section>
+        <div class="main-title-box">
+          <div class="main-title" id="sum">미션 갤러리</div>
+          <div class="main-text">
+            이 페이지에서 여러분들이 제출한 미션과 다른 팀이 제출한 미션을
+            확인해보실 수 있습니다!
+          </div>
+        </div>
+        <div class="main-button">
+          <input type="radio" id="tab-1" name="show" value="1" checked />
+          <input type="radio" id="tab-2" name="show" value="2" />
+          <input type="radio" id="tab-3" name="show" value="3" />
+          <input type="radio" id="tab-4" name="show" value="4" />
+          <input type="radio" id="tab-5" name="show" value="5" />
+        
+          <div class="tab">
+            <label for="tab-1" onclick="mission_show(this)" id="label1"></label>
+            <label for="tab-2" onclick="mission_show(this)" id="label2"></label>
+            <label for="tab-3" onclick="mission_show(this)" id="label3"></label>
+            <label for="tab-4" onclick="mission_show(this)" id="label4"></label>
+            <label for="tab-5" onclick="mission_show(this)" id="label5"></label>
+          </div>
+        </div>
+        <div class="main-line"></div>
+        <div class="main-subtitle">첫 번째 미션</div>
+        <div class="group-tab-button">
+          <input id="group-tab-1" name="group" type="radio" value="A" checked />
+          <input id="group-tab-2" name="group" type="radio" value="B" />
+          <input id="group-tab-3" name="group" type="radio" value="C" />
+          <input id="group-tab-4" name="group" type="radio" value="D" />
+          <div class="group-tab">
+            <label for="group-tab-1" onclick="mission_show_semi(this)" id="labelA">A</label>
+            <label for="group-tab-2" onclick="mission_show_semi(this)" id="labelB">B</label>
+            <label for="group-tab-3" onclick="mission_show_semi(this)" id="labelC">C</label>
+            <label for="group-tab-4" onclick="mission_show_semi(this)" id="labelD">D</label>
+          </div>
+        </div>
+        <div class="main-gallery">
+          <!-- [시작]게시글 들어가는 부분 -->
+          <script>
+            for (var i = 1; i <= 1; i++){
+            document.write("<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='img/test.jpeg' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>"
+            )};
+          </script>
+          <!-- [끝]게시글 들어가는 부분 -->
+
+
+          <!-- box 한 단위 -->
+          <!--
+          <a class="main-gallery__box" href="detail.html">
+            <div class="main-gallery-img">
+              <img class="main-gallery-img" src="img/test.jpeg" alt="img" />
+            </div>
+            <div class="main-gallery-text">
+              <div class="main-gallery-team">
+                <span>팀명</span>
+                <span class="main-gallery-detail">{{list.team_name}}</span>
+              </div>
+              <div class="main-gallery-name">
+                <span>팀원</span>
+                <span class="main-gallery-detail">{{list.team_members}}</span>
+              </div>
+            </div>
+          </a>
+          -->
+          <!-- 끝 -->
+        </div>
+        <div class="main-pagenation-box">
+          <!-- pagenation -->
+          <button class="main-pagenum">1</button>
+          <!--  -->
+        </div>
+      </section>
+      <footer>
+        <div class="footer-text up-text">
+          ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
+          전화 : 1588-7701 팩스 : 0502-258-8322<br />
+          E-mail : contact-us@nexon.co.kr 사업자등록번호 : 220-87-17483호
+          통신판매업 신고번호 : 제2013-경기성남-1659호 사업자정보확인 <br />@
+          NEXON Korea Corporation All Rights Reserved.
+        </div>
+        <div class="footer-text">
+          이용약관 | 개인정보처리방침 | 환불규정<br />
+          상호명: 멋쟁이사자처럼 | 대표: 이두희works@likelion.net | 사업자 번호
+          : 264-88-01106<br />
+          통신판매업 신고번호 : 2019 - 서울강남 - 00774 | 주소 : 서울 종로구
+          종로3길17, 광화문D타워 D1동 16층, 17층 <br />Copyright © 2022
+          멋쟁이사자처럼 All rights reserved.
+        </div>
+        <div class="footer__img-box">
+          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
+          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
+        </div>
+      </footer>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $("#sidebarCollapse").on("click", function () {
+        $("#sidebar").addClass("active");
+        $(".overlay").fadeIn();
+      });
+  
+      $(".overlay").on("click", function () {
+        $("#sidebar").removeClass("active");
+        $(".overlay").fadeOut();
+      });
+      $("#tab-1").on("click", function () {
+        $("#group-tab-1").prop("checked", true);
+      });
+      $("#tab-2").on("click", function () {
+        $("#group-tab-1").prop("checked", true);
+      });
+      $("#tab-3").on("click", function () {
+        $("#group-tab-1").prop("checked", true);
+      });
+      $("#tab-4").on("click", function () {
+        $("#group-tab-1").prop("checked", true);
+      });
+      $("#tab-5").on("click", function () {
+        $("#group-tab-1").prop("checked", true);
+      });
+    </script>
+    <script>
+      function mission_show(self){
+        if(self == document.getElementById("label1"))
+        {var input_val = "1";}
+        else if(self == document.getElementById("label2"))
+        {var input_val = "2";}
+        else if(self == document.getElementById("label3"))
+        {var input_val = "3";}
+        else if(self == document.getElementById("label4"))
+        {var input_val = "4";}
+        else if(self == document.getElementById("label5"))
+        {var input_val = "5";}
+        $.ajax({
+          url: 'mission_show',
+          type: 'GET',
+          data: {
+            'input_val':input_val
+          },
+          datatype: 'json',
+          success: function(data){
+            num = data['num']
+            team_name = data['team_name']
+            team_members = data['team_members']
+            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
+            console.log(num)
+            console.log(team_name)
+            console.log(team_members)
+            console.log(thumbnail_imagesrc1)
+          }
+        });
+      }
+      function mission_show_semi(self){
+        if(document.getElementById('tab-1').checked == true)
+        {var input_val = "1";}
+        else if(document.getElementById('tab-2').checked == true)
+        {var input_val = "2";}
+        else if(document.getElementById('tab-3').checked == true)
+        {var input_val = "3";}
+        else if(document.getElementById('tab-4').checked == true)
+        {var input_val = "4";}
+        else if(document.getElementById('tab-5').checked == true)
+        {var input_val = "5";}
+
+        if(self == document.getElementById("labelA"))
+        {var input_val_at = "A";}
+        else if(self == document.getElementById("labelB"))
+        {var input_val_at = "B";}
+        else if(self == document.getElementById("labelC"))
+        {var input_val_at = "C";}
+        else if(self == document.getElementById("labelD"))
+        {var input_val_at = "D";}
+
+        $.ajax({
+          url: 'mission_show_semi',
+          type: 'GET',
+          data: {
+            'input_val':input_val,
+            'input_val_at':input_val_at
+          },
+          datatype: 'json',
+          success: function(data){
+            num = data['num']
+            team_name = data['team_name']
+            team_members = data['team_members']
+            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
+            console.log(num)
+            console.log(team_name)
+            console.log(team_members)
+            console.log(thumbnail_imagesrc1)
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

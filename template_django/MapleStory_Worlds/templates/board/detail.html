@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'board/css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'board/css/detail.css' %}" />
+    <title>MapleStory Worlds</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header__left">
+          <a class="header__left__title" href="/"
+            >MapleStory Worlds Super Hackathon</a
+          >
+          <a class="header__left__sub-title" href="../register"
+            >미션 등록하기</a
+          >
+          <a class="header__left__sub-title" href="../check">미션 확인하기</a>
+        </div>
+        {% if user.is_active %}
+        <!-- 로그인 완료 했을때 코드 -->
+        <div class="header__right is-login" id="sidebarCollapse">
+          {{user.name}}님, 안녕하세요.
+        </div>
+        {% else %}
+        <!-- 로그인 안했을 떄 -->
+        <a href="./login" class="header__right">
+          <button class="header__right__button">로그인</button>
+        </a> 
+        {% endif %}
+        <nav id="sidebar">
+          <div class="sidebar-title">
+            <div class="sidebar__title-name">이름</div>
+            <a class="sidebar__title-logout">로그아웃</a>
+          </div>
+          <div class="sidebar__main">
+            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-line"></div>
+            <a class="sidebar__main-button color1">첫 번째 미션</a>
+            <a class="sidebar__main-button color2">두 번째 미션</a>
+            <a class="sidebar__main-button color3">세 번째 미션</a>
+            <a class="sidebar__main-button color4">네 번째 미션</a>
+            <a class="sidebar__main-button color5">다섯 번째 미션</a>
+          </div>
+        </nav>
+        <div class="overlay"></div>
+      </header>
+      <section>
+        <div class="main__title-box">
+          <div class="main__title">
+            MapleStory Worlds<br />
+            Super Hackathon
+          </div>
+        </div>
+        <div class="main-button">
+          <input type="radio" id="tab-1" name="show" value="1" checked />
+          <input type="radio" id="tab-2" name="show" value="2" />
+          <input type="radio" id="tab-3" name="show" value="3" />
+          <input type="radio" id="tab-4" name="show" value="4" />
+          <input type="radio" id="tab-5" name="show" value="5" />
+          <div class="tab">
+            <label for="tab-1"></label>
+            <label for="tab-2"></label>
+            <label for="tab-3"></label>
+            <label for="tab-4"></label>
+            <label for="tab-5"></label>
+          </div>
+        </div>
+        <div class="main-line"></div>
+        <div class="main-subtext show mission1">
+          <div class="main-subtext-title">첫 번째 미션</div>
+          <div class="main-subtext-content">
+            <br />
+            메이플 스토리 월드에 콘텐츠를 출시할 크리에이터가될 당신!
+            <br /><br />콘텐츠를 출시하기 이전, 콘텐츠를 탐색하고 가장
+            재미있거나 감명깊었던 콘텐츠의 월드 제목과 감명깊었던 이유를 팀원 한
+            명당 4줄 <br />이상 작성해 제출해주시기 바랍니다. (기한: 10월
+            16일(금) 오전 10시까지) <br /><br />
+            ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
+            감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+          </div>
+        </div>
+
+        <div class="main-subtext none mission2">
+          <div class="main-subtext-title">두 번째 미션</div>
+          <div class="main-subtext-content">
+            메이플 스토리 월드에 콘텐츠를 출시 하려면, 메이플 스토리 리소스를
+            활용하는 방법을 알아두면 좋겠죠?<br />
+            슈퍼해커톤 기획단이 준비한 [메이플 스토리 리소스 활용 TIP] 실시간
+            특강에 참여하거나 실시간 특강 녹화본을 시청하시고 시청 후기를
+            남겨주시고, 강의 수강 장면을 캡처하여 이미지로 첨부해주시기
+            바랍니다.
+            <p class="main-bold">(기한: 10월 23일(금) 오전 10시까지)</p>
+            <br />
+            ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가 시
+            감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+          </div>
+        </div>
+
+        <div class="main-subtext none mission3">
+          <div class="main-subtext-title">세 번째 미션</div>
+          <div class="main-subtext-content">
+            메이플 스토리 월드에 콘텐츠를 출시하기 위해서는 팀원들과 함께 협업이
+            꼭 필요하겠죠? 팀원들과 혐업하기 위해서는 MSW 플랫폼 내에 ‘그룹’을
+            만들고 그룹원들이 함께 작업할 수 있는 ‘공동 월드 제작 방법’을
+            익히셔야 합니다. 지금부터 협업에 대한 준비를 해두면 나중에 팀원들과
+            함께 개발하는데 큰 도움이 될 거예요!<br /><br />
+
+            1. 그룹원 초대하고 인증하기 MSW 포탈 웹에 접속하셔서 피어 그룹
+            명으로 그룹을 만들고 그룹에 그룹장이 그룹원을 모두 초대합니다. 초대
+            후 그룹에 모든 그룹원이 초대된 것을 인증샷을 남깁니다.
+            <br /><br />
+            2. 공동 월드 제작하고 인증하기 1번에서 인증샷을 남긴 뒤 **[미션
+            제출_그룹명]** 이름의 공동 월드를 제작합니다. 공동 월드에서
+            MapleMap중 마음에 드는 것을 그룹원과 상의하여 고른 뒤 공동 월드에
+            불러온 후 Workspace에 여러 그룹원이 함께 작업하고 있는 장면을
+            인증샷을 납깁니다.
+            <br /><br />
+            이때, 공동 월드의 이름과 그룹원이 두 명 이상 작업하고 있는 장면이
+            드러나야합니다.
+            <br /><br />
+            공동 월드 제작하는 방법은 아래 링크를 참고해주시기 바랍니다.
+            https://www.notion.so/2-7380a5742bb245ce92a69e39134bc12a
+            <br /><br />
+            ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
+            감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+          </div>
+        </div>
+
+        <div class="main-subtext none mission4">
+          <div class="main-subtext-title">네 번째 미션</div>
+          <div class="main-subtext-content">
+            공동 월드에서 팀원들과 함께 작업하고 인증해주세요!<br />
+            이때, 만들고자 하는 콘텐츠의 장르에 따라 필요한 실습 학습 교얀을
+            참고하여 여러 기능을 구현해보시기 바랍니다.
+            <br /><br />
+            공동 월드 작업 인증 방법<br />
+            세 번째 미션에서 제작한 미션 제출_그룹명] 월드에서 팀원들과 함께
+            [실습 학습 교안] 내용을 참고하여 공동 월드에서 작업한 장면을 180초
+            내외로 화면 녹화하여 팀장의 유튜브에 [일부 공개]로 업데이트 한 뒤
+            링크를 첨부해주시기 바랍니다.
+            <br /><br />
+            ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
+            감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+          </div>
+        </div>
+
+        <div class="main-subtext none mission5">
+          <div class="main-subtext-title">다섯 번째 미션</div>
+          <div class="main-subtext-content">
+            팀원들과 짧은 시간이었지만 이야기 많이 나누셨나요?<br /><br />
+
+            개발자가 개발을 하기 위해서는 “만들고 싶은 콘텐츠의 아이디어"가
+            정리되어야 하고, “개발을 하는 데 필요한 요청사항 정리"가
+            필요합니다.<br /><br />
+
+            어떻게 하면 팀원들과 만들고 싶은 콘텐츠의 아이디어를 정리하고 함께
+            개발해나갈 수 있을까요? 여러분들이 개발을 잘 할 수 있도록 &ltMSW
+            플랫폼 아이디어 기획안 작성 방법&gt 페이지를 확인하셔서 개발에 관한
+            아이디어를 꼼꼼하게 정리해서 제출해주시기 바랍니다.
+            <br /><br />
+            ⚠️ 유의사항 ⚠️ 제출한 아이디어 기획안을 바탕으로, &lt디자이너&gt를
+            매칭해드립니다. 매력적인 아이디어일 수록 우리 팀에 디자이너가 함께할
+            가능성이 커집니다. 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
+            감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
+          </div>
+        </div>
+
+        <div class="content-box">
+          <div class="confirm">
+            <div class="confirm-title">미션 삭제</div>
+            <div class="confirm-line"></div>
+            <div class="confirm-message">삭제하시겠습니까?</div>
+            <div class="confirm-answer-box">
+              <div class="confirm-answer no">아니오</div>
+              <!-- 실제 삭제 버튼 -->
+                <button class="confirm-answer yes" onclick="location.href='{{pk}}/delete'">네</button>
+            </div>
+          </div>
+          <div class="content padding-top">
+            <div class="content__title">
+              <div class="content__title-text">
+                TITLE
+                <span class="content__subtitle show mission1">
+                  <!-- 조 이름과 제목 넣을곳 -->
+                  첫 번째 미션 제출</span
+                ><span class="content__subtitle none mission2"
+                  >두 번째 미션 제출</span
+                ><span class="content__subtitle none mission3"
+                  >세 번째 미션 제출</span
+                ><span class="content__subtitle none mission4"
+                  >네 번째 미션 제출</span
+                ><span class="content__subtitle none mission5"
+                  >다섯 번째 미션 제출</span
+                >
+              </div>
+              <!-- 수정 삭제 버튼 자신이 만든 게시글에서만 -->
+
+              <div class="content-edit-box" {% if edit_auth == False %} style="visibility:hidden" {% endif %}>
+                <a href="/register/{{pk}}/edit/" class="content-edit">수정</a>
+                <div class="content-edit delete submit-button">삭제</div>
+              </div>
+
+            </div>
+            <div class="content-line"></div>
+            <div class="content__text">
+              제출일시
+              <span class="content__subtitle"
+                ><!-- 시간 넣을 곳 -->{{end_date}}</span
+              >
+            </div>
+          </div>
+          <div class="content">
+            <div class="content__title">PEER GROUP MEMBER</div>
+            <div class="content-line"></div>
+            <div class="content__text">
+              <!-- 팀장 팀원 넣을 곳 -->
+              팀장 : {{team_name}}<br />
+              팀원 : {{team_members}}
+            </div>
+          </div>
+          <div class="content">
+            <div class="content__title">MISSION DESCRIPTION</div>
+            <div class="content-line"></div>
+            <div class="content__text">
+              {{mission | safe}}
+            </div>
+          </div>
+        </div>
+        <div class="next-prev">
+          <button class="move-button">이전으로</button>
+          <button class="move-button">다음으로</button>
+        </div>
+        <div class="move-check">
+          <a href="../check" class="move-to-check-button">목록으로</a>
+        </div>
+      </section>
+      <div class="confirm-overlay"></div>
+      <footer>
+        <div class="footer-text up-text">
+          ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
+          전화 : 1588-7701 팩스 : 0502-258-8322<br />
+          E-mail : contact-us@nexon.co.kr 사업자등록번호 : 220-87-17483호
+          통신판매업 신고번호 : 제2013-경기성남-1659호 사업자정보확인 <br />@
+          NEXON Korea Corporation All Rights Reserved.
+        </div>
+        <div class="footer-text">
+          이용약관 | 개인정보처리방침 | 환불규정<br />
+          상호명: 멋쟁이사자처럼 | 대표: 이두희works@likelion.net | 사업자 번호
+          : 264-88-01106<br />
+          통신판매업 신고번호 : 2019 - 서울강남 - 00774 | 주소 : 서울 종로구
+          종로3길17, 광화문D타워 D1동 16층, 17층 <br />Copyright © 2022
+          멋쟁이사자처럼 All rights reserved.
+        </div>
+        <div class="footer__img-box">
+          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
+          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $("#sidebarCollapse").on("click", function () {
+      $("#sidebar").addClass("active");
+      $(".overlay").fadeIn();
+    });
+
+    $(".overlay").on("click", function () {
+      $("#sidebar").removeClass("active");
+      $(".overlay").fadeOut();
+    });
+    $(".submit-button").on("click", function () {
+      $(".confirm").addClass("active");
+      $(".confirm-overlay").fadeIn();
+    });
+    $(".no").on("click", function () {
+      $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
+    });
+    $("#tab-1").on("click", function () {
+      $(".mission1").removeClass("none");
+      $(".mission1").addClass("show");
+      $(".mission2").addClass("none");
+      $(".mission3").addClass("none");
+      $(".mission4").addClass("none");
+      $(".mission5").addClass("none");
+    });
+    $("#tab-2").on("click", function () {
+      $(".mission1").addClass("none");
+      $(".mission2").removeClass("none");
+      $(".mission2").addClass("show");
+      $(".mission3").addClass("none");
+      $(".mission4").addClass("none");
+      $(".mission5").addClass("none");
+    });
+    $("#tab-3").on("click", function () {
+      $(".mission1").addClass("none");
+      $(".mission2").addClass("none");
+      $(".mission3").removeClass("none");
+      $(".mission3").addClass("show");
+      $(".mission4").addClass("none");
+      $(".mission5").addClass("none");
+    });
+    $("#tab-4").on("click", function () {
+      $(".mission1").addClass("none");
+      $(".mission2").addClass("none");
+      $(".mission3").addClass("none");
+      $(".mission4").removeClass("none");
+      $(".mission4").addClass("show");
+      $(".mission5").addClass("none");
+    });
+    $("#tab-5").on("click", function () {
+      $(".mission1").addClass("none");
+      $(".mission2").addClass("none");
+      $(".mission3").addClass("none");
+      $(".mission4").addClass("none");
+      $(".mission5").removeClass("none");
+      $(".mission5").addClass("show");
+    });
+  </script>
+</html>
