@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'users/css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'users/css/footer.css' %}" />
+    <title>MapleStoryWorld</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <section>
+        <div class="section__title">MapleStory Worlds Super Hackathon</div>
+        <div class="section-line"></div>
+        <form action="" method="POST" class="section__form">
+          {% csrf_token %}
+          <div class="section__form-box">
+            <label for="">계정</label>
+            <input
+              type="text"
+              class="form-control section__form-input"
+              id="id_user_id"
+              name="user_id"
+              maxlength="17" />
+          </div>
+          <div class="section__form-box">
+            <label for="">비밀번호</label>
+            <input
+              type="text"
+              class="form-control section__form-input"
+              id="id_password"
+              name="password"
+              maxlength="17" />
+          </div>
+          <button class="submit-button" type="submit">로그인</button>
+        </form>
+      </section>
+      <footer>
+        <div class="footer-text up-text">
+          ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
+          전화 : 1588-7701 팩스 : 0502-258-8322<br />
+          E-mail : contact-us@nexon.co.kr 사업자등록번호 : 220-87-17483호
+          통신판매업 신고번호 : 제2013-경기성남-1659호 사업자정보확인 <br />@
+          NEXON Korea Corporation All Rights Reserved.
+        </div>
+        <div class="footer-text">
+          이용약관 | 개인정보처리방침 | 환불규정<br />
+          상호명: 멋쟁이사자처럼 | 대표: 이두희works@likelion.net | 사업자 번호
+          : 264-88-01106<br />
+          통신판매업 신고번호 : 2019 - 서울강남 - 00774 | 주소 : 서울 종로구
+          종로3길17, 광화문D타워 D1동 16층, 17층 <br />Copyright © 2022
+          멋쟁이사자처럼 All rights reserved.
+        </div>
+        <div class="footer__img-box">
+          <img src="{% static 'users/img/nexon.png' %}" alt="NEXON" />
+          <img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

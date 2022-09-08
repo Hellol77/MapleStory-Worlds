@@ -1,0 +1,139 @@
+header {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  font-weight: 700;
+  font-size: 16px;
+  justify-content: space-between;
+  border: 1px solid #d9d9d9;
+}
+
+.header__left {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 36px;
+  margin-left: 60px;
+}
+.header__left__title {
+  width: 150px;
+  height: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+.header__left__sub-title {
+  height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.header__right {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 60px;
+  cursor: pointer;
+}
+.is-login {
+  font-weight: 400;
+  font-size: 15px;
+  border: none;
+  background-color: white;
+}
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+  position: fixed;
+  top: 0;
+  right: -320px;
+  height: 100%;
+  z-index: 999;
+  background: white;
+  color: black;
+  transition: all 0.3s;
+}
+#sidebar.active {
+  right: 0;
+}
+.sidebar-title {
+  width: 80%;
+  display: flex;
+  text-align: left;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.sidebar__title-logout {
+  font-weight: 400;
+  font-size: 14px;
+}
+.sidebar__main {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__main-title {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: left;
+}
+.sidebar__main-line {
+  border: 1px solid #d9d9d9;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.sidebar__main-button {
+  width: 100%;
+  height: 36px;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color1 {
+  background-color: #f195bf;
+}
+.color2 {
+  background-color: #d0de73;
+}
+.color3 {
+  background-color: #ffe432;
+}
+.color4 {
+  background-color: #65cdf3;
+}
+.color5 {
+  background-color: #f5ac86;
+}
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+  display: none;
+}
+
+.header__right__button {
+  width: 80px;
+  height: 36px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 24px;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+.header__right__button:hover {
+  color: white;
+  background-color: black;
+}
+
+@media screen and (max-width: 767px) {
+}
