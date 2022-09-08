@@ -147,7 +147,7 @@ section {
   justify-content: center;
   align-items: center;
   width: 80px;
-  height: 36px;
+  height: 28px;
   border: 2px solid #d9d9d9;
 }
 .padding-top {
@@ -155,6 +155,9 @@ section {
 }
 .delete {
   margin-left: 5px;
+}
+.content__title-text {
+  display: flex;
 }
 .content__subtitle {
   font-weight: 400;
@@ -183,7 +186,7 @@ section {
   width: 100%;
   justify-content: right;
 }
-.move-check-button {
+.move-to-check-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -256,4 +259,10 @@ section {
 
 .main-bold {
   font-weight: 700;
+}
+.show {
+  display: flex;
+}
+.none {
+  display: none;
 }
