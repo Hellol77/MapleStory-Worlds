@@ -337,7 +337,15 @@ input::placeholder {
 .none{
 display: none;
 }
-
+/*
+.ck.ck-editor {
+  width: 854px;
+  max-width: 854px;
+}
+.ck-editor__editable {
+  height: 480px;
+}
+*/
 @media screen and (max-width: 767px) {
   .form {
     justify-content: center;
@@ -370,4 +378,10 @@ display: none;
     justify-content: center;
     width: auto;
   }
+  /*
+  .ck.ck-editor {
+    width: 340px;
+    max-width: 340px;
+  }
+  */
 }

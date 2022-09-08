@@ -11,6 +11,8 @@ class Mission_1(models.Model):
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
 #    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
     mission = RichTextField(blank=True, null=True)
+    end_date = models.DateField(auto_now_add=True, null=True)
+    
 
     thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
     mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
@@ -31,6 +33,7 @@ class Mission_2(models.Model):
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
     mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    end_date = models.DateField(auto_now_add=True, null=True)
 
     thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
     mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
@@ -51,6 +54,7 @@ class Mission_3(models.Model):
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
     mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    end_date = models.DateField(auto_now_add=True, null=True)
 
     thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
     mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
@@ -71,6 +75,7 @@ class Mission_4(models.Model):
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
     mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    end_date = models.DateField(auto_now_add=True, null=True)
 
     thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
     mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
@@ -91,6 +96,7 @@ class Mission_5(models.Model):
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
     mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    end_date = models.DateField(auto_now_add=True, null=True)
 
     thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
     mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
