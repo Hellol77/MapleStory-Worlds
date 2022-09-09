@@ -115,13 +115,7 @@
         </div>
         <div class="main-gallery" id="content">
           <!-- [시작]게시글 들어가는 부분 -->
-          <script>
-            {% comment %} for (var i = 1; i <= num; i++) {
-              document.write(
-                "<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>"
-              );
-            } {% endcomment %}
-          </script>
+          <script></script>
           <!-- [끝]게시글 들어가는 부분 -->
 
           <!-- box 한 단위 -->
@@ -144,9 +138,9 @@
           -->
           <!-- 끝 -->
         </div>
-        <div class="main-pagenation-box">
+        <div class="main-pagenation-box" id="pagenation">
           <!-- pagenation -->
-          <button class="main-pagenum">1</button>
+          {% comment %} <button class="main-pagenum">1</button> {% endcomment %}
           <!--  -->
         </div>
       </section>
@@ -187,6 +181,7 @@
         $("#sidebar").removeClass("active");
         $(".overlay").fadeOut();
       });
+      {% comment %} 미션버튼 누를때 A미션으로 default {% endcomment %}
       $("#tab-1").on("click", function () {
         $("#group-tab-1").prop("checked", true);
       });
@@ -205,6 +200,26 @@
     </script>
     <script>
       const element = document.getElementById("content");
+      const pagenationElement = document.getElementById("pagenation");
+      const pagenation = (pageNum) => {
+        pagenationElement.innerHTML = "";
+        for (var i = 1; i <= pageNum; i++) {
+          pagenationElement.innerHTML += `<button class="main-pagenum" id="page${i}" onclick="mission_show_semi_pageButton(this)" value=${i}>${i}</button>`;
+        }
+      };
+      const showPost = (pageButtonNum) => {
+        element.innerHTML = "";
+        for (
+          var i = 0 + 12 * (pageButtonNum - 1);
+          i < 12 * pageButtonNum;
+          i++
+        ) {
+          if (team_members[i] === undefined) {
+            break;
+          }
+          element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+        }
+      };
       $.ajax({
         url: "mission_show",
         type: "GET",
@@ -222,11 +237,15 @@
           console.log(team_name);
           console.log(team_members);
           console.log(thumbnail_imagesrc1);
-          for (var i = 0; i < num; i++) {
-            element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+          if (num === 0) {
+            num = 1;
           }
+          const pageNum = Math.ceil(num / 12);
+          pagenation(pageNum);
+          showPost(1);
         },
       });
+
       function mission_show(self) {
         if (self == document.getElementById("label1")) {
           var input_val = "1";
@@ -256,10 +275,12 @@
             console.log(team_name);
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
-            element.innerHTML = "";
-            for (var i = 0; i < num; i++) {
-              element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+            if (num === 0) {
+              num = 1;
             }
+            const pageNum = Math.ceil(num / 12);
+            pagenation(pageNum);
+            showPost(1);
           },
         });
       }
@@ -304,10 +325,58 @@
             console.log(team_name);
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
-            element.innerHTML = "";
-            for (var i = 0; i < num; i++) {
-              element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+            if (num === 0) {
+              num = 1;
             }
+            const pageNum = Math.ceil(num / 12);
+            pagenation(pageNum);
+            showPost(1);
+          },
+        });
+      }
+      function mission_show_semi_pageButton(self) {
+        if (document.getElementById("tab-1").checked == true) {
+          var input_val = "1";
+        } else if (document.getElementById("tab-2").checked == true) {
+          var input_val = "2";
+        } else if (document.getElementById("tab-3").checked == true) {
+          var input_val = "3";
+        } else if (document.getElementById("tab-4").checked == true) {
+          var input_val = "4";
+        } else if (document.getElementById("tab-5").checked == true) {
+          var input_val = "5";
+        }
+
+        if (document.getElementById("group-tab-1").checked == true) {
+          var input_val_at = "A";
+        } else if (document.getElementById("group-tab-2").checked == true) {
+          var input_val_at = "B";
+        } else if (document.getElementById("group-tab-3").checked == true) {
+          var input_val_at = "C";
+        } else if (document.getElementById("group-tab-4").checked == true) {
+          var input_val_at = "D";
+        }
+        $.ajax({
+          url: "mission_show_semi",
+          type: "GET",
+          async: false,
+          data: {
+            input_val: input_val,
+            input_val_at: input_val_at,
+          },
+          datatype: "json",
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            console.log("value", self.value);
+            console.log(typeof parseInt(self.value));
+            showPost(parseInt(self.value));
           },
         });
       }
