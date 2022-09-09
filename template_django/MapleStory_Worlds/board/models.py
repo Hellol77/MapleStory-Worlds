@@ -14,10 +14,15 @@ class Mission_1(models.Model):
     end_date = models.DateField(auto_now_add=True, null=True)
     
 
-    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
-    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
-    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
-    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+#    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
+#    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
+#    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
+#    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+    image1 = models.ImageField(upload_to = "mission1_thumbnail/", null=True, blank=True)
+    image2 = models.ImageField(upload_to = "mission1_image1/", null=True, blank=True)
+    image3 = models.ImageField(upload_to = "mission1_image2/", null=True, blank=True)
+    image4 = models.ImageField(upload_to = "mission1_image3/", null=True, blank=True)
+
 
     def __str__(self):
         return str(self.user_id)
@@ -32,13 +37,19 @@ class Mission_2(models.Model):
     group = models.CharField(choices=GROUP_CHOICES, max_length=6, verbose_name="그룹", null=True)
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
-    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+#    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    mission = RichTextField(blank=True, null=True)
     end_date = models.DateField(auto_now_add=True, null=True)
 
-    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
-    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
-    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
-    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+#    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
+#    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
+#    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
+#    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+
+    image1 = models.ImageField(upload_to = "mission2_thumbnail/", null=True, blank=True)
+    image2 = models.ImageField(upload_to = "mission2_image1/", null=True, blank=True)
+    image3 = models.ImageField(upload_to = "mission2_image2/", null=True, blank=True)
+    image4 = models.ImageField(upload_to = "mission2_image3/", null=True, blank=True)
 
     def __str__(self):
         return str(self.user_id)
@@ -53,14 +64,20 @@ class Mission_3(models.Model):
     group = models.CharField(choices=GROUP_CHOICES, max_length=6, verbose_name="그룹", null=True)
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
-    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+#    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    mission = RichTextField(blank=True, null=True)
     end_date = models.DateField(auto_now_add=True, null=True)
 
-    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
-    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
-    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
-    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+#    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
+#    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
+#    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
+#    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
 
+    image1 = models.ImageField(upload_to = "mission3_thumbnail/", null=True, blank=True)
+    image2 = models.ImageField(upload_to = "mission3_image1/", null=True, blank=True)
+    image3 = models.ImageField(upload_to = "mission3_image2/", null=True, blank=True)
+    image4 = models.ImageField(upload_to = "mission3_image3/", null=True, blank=True)
+    
     def __str__(self):
         return str(self.user_id)
 
@@ -74,14 +91,21 @@ class Mission_4(models.Model):
     group = models.CharField(choices=GROUP_CHOICES, max_length=6, verbose_name="그룹", null=True)
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
-    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+#    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    mission = RichTextField(blank=True, null=True)
     end_date = models.DateField(auto_now_add=True, null=True)
 
-    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
-    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
-    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
-    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+#    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
+#    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
+#    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
+#    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
 
+
+    image1 = models.ImageField(upload_to = "mission4_thumbnail/", null=True, blank=True)
+    image2 = models.ImageField(upload_to = "mission4_image1/", null=True, blank=True)
+    image3 = models.ImageField(upload_to = "mission4_image2/", null=True, blank=True)
+    image4 = models.ImageField(upload_to = "mission4_image3/", null=True, blank=True)
+    
     def __str__(self):
         return str(self.user_id)
 
@@ -95,13 +119,19 @@ class Mission_5(models.Model):
     group = models.CharField(choices=GROUP_CHOICES, max_length=6, verbose_name="그룹", null=True)
     team_name = models.CharField(max_length=17, verbose_name="팀명", blank=True, null=True)
     team_members = models.CharField(max_length=30, verbose_name="팀원", blank=True, null=True)
-    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+#    mission = models.TextField(max_length=600, verbose_name="미션설명", blank=True, null=True)
+    mission = RichTextField(blank=True, null=True)
     end_date = models.DateField(auto_now_add=True, null=True)
 
-    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
-    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
-    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
-    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+#    thumbnail_imagesrc1 = models.CharField(max_length=80, verbose_name='이미지1 주소', blank=True, null=True)
+#    mission_imagesrc2 = models.CharField(max_length=80, verbose_name='이미지2 주소', blank=True, null=True)
+#    mission_imagesrc3 = models.CharField(max_length=80, verbose_name='이미지3 주소', blank=True, null=True)
+#    mission_imagesrc4 = models.CharField(max_length=80, verbose_name='이미지4 주소', blank=True, null=True)
+
+    image1 = models.ImageField(upload_to = "mission4_thumbnail/", null=True, blank=True)
+    image2 = models.ImageField(upload_to = "mission4_image1/", null=True, blank=True)
+    image3 = models.ImageField(upload_to = "mission4_image2/", null=True, blank=True)
+    image4 = models.ImageField(upload_to = "mission4_image3/", null=True, blank=True)
 
     def __str__(self):
         return str(self.user_id)

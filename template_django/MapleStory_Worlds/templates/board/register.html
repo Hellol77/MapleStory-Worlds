@@ -129,7 +129,7 @@
               이때, 공동 월드의 이름과 그룹원이 두 명 이상 작업하고 있는 장면이
               드러나야합니다.
               <br /><br />
-              공동 월드 제작하는 방법은 아래 링크를 참고해주시기 바랍니다.
+              공동 월드 제작하는 방법은 아래 링크를 참고해주시기 바랍니다.<br />
               https://www.notion.so/2-7380a5742bb245ce92a69e39134bc12a
               <br /><br />
               ⚠️ 유의사항 ⚠️ 기한 내에 제출하지 않을 시 슈퍼해커톤 수상 평가시
@@ -220,7 +220,7 @@
             class="form-control text-input"
             id="id_team_name"
             name="team_name"
-            value=""
+            value="{{team_name}}"
             maxlength="17"
           />
           <label class="labelClass" for="id_team_members">팀원</label>
@@ -229,7 +229,7 @@
             class="form-control text-input"
             id="id_team_members"
             name="team_members"
-            value=""
+            value="{{team_members}}"
             maxlength="17"
           />
           <label class="labelClass" for="id_mission">미션 설명</label>
@@ -240,7 +240,7 @@
             id="id_mission"
             name="mission"
             maxlength="600"
-          ></textarea>
+          >{{mission}}</textarea>
 
           <div class="main__submethod">
             <div class="main__submethod-title">이미지 업로드 방법</div>
@@ -334,6 +334,27 @@
           <div class="submit-button-box">
             <div class="submit-button">등록하기</div>
           </div>
+          {% if user.level == "4" %}
+          <div class="confirm">
+            <div class="confirm-title">미션 제출</div>
+            <div class="confirm-line"></div>
+            <div class="confirm-message">미션은 팀장만 제출 가능합니다..</div>
+            <div class="confirm-answer-box">
+              <div class="confirm-answer-omT no">확인</div>
+
+            </div>
+          </div>
+          {% else %}
+          <div class="reconfirm">
+            <div class="confirm-title">미션 제출</div>
+            <div class="confirm-line"></div>
+            <div class="confirm-message">미션 중복 제출은 불가능합니다.</div>
+            <div class="confirm-answer-box">
+              <div class="confirm-answer-omT ok">확인</div>
+
+            </div>
+          </div>
+          
           <div class="confirm">
             <div class="confirm-title">미션 제출</div>
             <div class="confirm-line"></div>
@@ -343,6 +364,8 @@
               <button type="submit" class="confirm-answer yes">네</button>
             </div>
           </div>
+          
+          {% endif %}
         </form>
       </section>
       <footer>
@@ -369,7 +392,7 @@
     </div>
   </body>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
+  <script type="text/javascript">
     $("#id_image1").on("change", function () {
       var fileName = $("#id_image1")
         .val()
@@ -405,11 +428,67 @@
     });
 
     $(".submit-button").on("click", function () {
-      $(".confirm").addClass("active");
-      $(".confirm-overlay").fadeIn();
+      var userM1 = "{{userM1}}";
+      var userM2 = "{{userM2}}";
+      var userM3 = "{{userM3}}";
+      var userM4 = "{{userM4}}";
+      var userM5 = "{{userM5}}";
+
+      var tab_1 = $(document.getElementById('tab-1')).prop("checked");
+      var tab_2 = $(document.getElementById('tab-2')).prop("checked");
+      var tab_3 = $(document.getElementById('tab-3')).prop("checked");
+      var tab_4 = $(document.getElementById('tab-4')).prop("checked");
+      var tab_5 = $(document.getElementById('tab-5')).prop("checked");
+
+      if (tab_1 == true) {
+        if (userM1.toLowerCase() === tab_1.toString().toLowerCase()){
+          $(".reconfirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        } else {
+          $(".confirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        }
+      } else if (tab_2 == true) {
+        if (userM2.toLowerCase() === tab_2.toString().toLowerCase()){
+          $(".reconfirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        } else {
+          $(".confirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        }
+      } else if (tab_3 == true) {
+        if (userM3.toLowerCase() === tab_3.toString().toLowerCase()){
+          $(".reconfirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        } else {
+          $(".confirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        }
+      } else if (tab_4 == true) {
+        if (userM4.toLowerCase() === tab_4.toString().toLowerCase()){
+          $(".reconfirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        } else {
+          $(".confirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        }
+      } else if (tab_5 == true) {
+        if (userM5.toLowerCase() === tab_5.toString().toLowerCase()){
+          $(".reconfirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        } else {
+          $(".confirm").addClass("active");
+          $(".confirm-overlay").fadeIn();
+        }
+      }
+
     });
     $(".no").on("click", function () {
       $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
+    });
+    $(".ok").on("click", function () {
+      $(".reconfirm").removeClass("active");
       $(".confirm-overlay").fadeOut();
     });
     $("#tab-1").on("click", function () {

@@ -42,11 +42,11 @@
         {% endif %}
         <nav id="sidebar">
           <div class="sidebar-title">
-            <div class="sidebar__title-name">이름</div>
-            <a class="sidebar__title-logout">로그아웃</a>
+            <div class="sidebar__title-name">{{user.name}}</div>
+            <a class="sidebar__title-logout" href="/logout">로그아웃</a>
           </div>
           <div class="sidebar__main">
-            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-title">슈퍼해커톤 {{user.get_level_display}}</div>
             <div class="sidebar__main-line"></div>
             <a class="sidebar__main-button color1">첫 번째 미션</a>
             <a class="sidebar__main-button color2">두 번째 미션</a>
@@ -203,10 +203,12 @@
             team_name = data['team_name']
             team_members = data['team_members']
             thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
+            page_src = data['page_src']
             console.log(num)
             console.log(team_name)
             console.log(team_members)
             console.log(thumbnail_imagesrc1)
+            console.log(page_src)
           }
         });
       }
@@ -244,10 +246,12 @@
             team_name = data['team_name']
             team_members = data['team_members']
             thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
+            page_src = data['page_src']
             console.log(num)
             console.log(team_name)
             console.log(team_members)
             console.log(thumbnail_imagesrc1)
+            console.log(page_src)
           }
         });
       }

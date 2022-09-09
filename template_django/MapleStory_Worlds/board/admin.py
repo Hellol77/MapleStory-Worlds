@@ -8,10 +8,14 @@ class BoardMission_1(admin.ModelAdmin):
         'team_members',
         'mission',
         'end_date',
-        'thumbnail_imagesrc1',
-        'mission_imagesrc2',
-        'mission_imagesrc3',
-        'mission_imagesrc4',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+#        'thumbnail_imagesrc1',
+#        'mission_imagesrc2',
+#        'mission_imagesrc3',
+#        'mission_imagesrc4',
         )
     search_fields = ('user_id','team_name')
 
@@ -22,10 +26,14 @@ class BoardMission_2(admin.ModelAdmin):
         'team_members',
         'mission',
         'end_date',
-        'thumbnail_imagesrc1',
-        'mission_imagesrc2',
-        'mission_imagesrc3',
-        'mission_imagesrc4',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+#        'thumbnail_imagesrc1',
+#        'mission_imagesrc2',
+#        'mission_imagesrc3',
+#        'mission_imagesrc4',
         )
     search_fields = ('user_id','team_name')
 
@@ -36,10 +44,14 @@ class BoardMission_3(admin.ModelAdmin):
         'team_members',
         'mission',
         'end_date',
-        'thumbnail_imagesrc1',
-        'mission_imagesrc2',
-        'mission_imagesrc3',
-        'mission_imagesrc4',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+#        'thumbnail_imagesrc1',
+#        'mission_imagesrc2',
+#        'mission_imagesrc3',
+#        'mission_imagesrc4',
         )
     search_fields = ('user_id','team_name')
 
@@ -50,10 +62,14 @@ class BoardMission_4(admin.ModelAdmin):
         'team_members',
         'mission',
         'end_date',
-        'thumbnail_imagesrc1',
-        'mission_imagesrc2',
-        'mission_imagesrc3',
-        'mission_imagesrc4',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+#        'thumbnail_imagesrc1',
+#        'mission_imagesrc2',
+#        'mission_imagesrc3',
+#        'mission_imagesrc4',
         )
     search_fields = ('user_id','team_name')
 
@@ -64,10 +80,14 @@ class BoardMission_5(admin.ModelAdmin):
         'team_members',
         'mission',
         'end_date',
-        'thumbnail_imagesrc1',
-        'mission_imagesrc2',
-        'mission_imagesrc3',
-        'mission_imagesrc4',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+#        'thumbnail_imagesrc1',
+#        'mission_imagesrc2',
+#        'mission_imagesrc3',
+#        'mission_imagesrc4',
         )
     search_fields = ('user_id','team_name')
 
