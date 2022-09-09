@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'board/css/check.css' %}" />
     <title>MapleStory Worlds</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
   </head>
   <body>
     <div class="wrap">
@@ -38,12 +37,12 @@
         <!-- 로그인 안했을 떄 -->
         <a href="./login" class="header__right">
           <button class="header__right__button">로그인</button>
-        </a> 
+        </a>
         {% endif %}
         <nav id="sidebar">
           <div class="sidebar-title">
             <div class="sidebar__title-name">이름</div>
-            <a class="sidebar__title-logout">로그아웃</a>
+            <a class="sidebar__title-logout" href="/logout">로그아웃</a>
           </div>
           <div class="sidebar__main">
             <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
@@ -71,7 +70,7 @@
           <input type="radio" id="tab-3" name="show" value="3" />
           <input type="radio" id="tab-4" name="show" value="4" />
           <input type="radio" id="tab-5" name="show" value="5" />
-        
+
           <div class="tab">
             <label for="tab-1" onclick="mission_show(this)" id="label1"></label>
             <label for="tab-2" onclick="mission_show(this)" id="label2"></label>
@@ -88,21 +87,42 @@
           <input id="group-tab-3" name="group" type="radio" value="C" />
           <input id="group-tab-4" name="group" type="radio" value="D" />
           <div class="group-tab">
-            <label for="group-tab-1" onclick="mission_show_semi(this)" id="labelA">A</label>
-            <label for="group-tab-2" onclick="mission_show_semi(this)" id="labelB">B</label>
-            <label for="group-tab-3" onclick="mission_show_semi(this)" id="labelC">C</label>
-            <label for="group-tab-4" onclick="mission_show_semi(this)" id="labelD">D</label>
+            <label
+              for="group-tab-1"
+              onclick="mission_show_semi(this)"
+              id="labelA"
+              >A</label
+            >
+            <label
+              for="group-tab-2"
+              onclick="mission_show_semi(this)"
+              id="labelB"
+              >B</label
+            >
+            <label
+              for="group-tab-3"
+              onclick="mission_show_semi(this)"
+              id="labelC"
+              >C</label
+            >
+            <label
+              for="group-tab-4"
+              onclick="mission_show_semi(this)"
+              id="labelD"
+              >D</label
+            >
           </div>
         </div>
-        <div class="main-gallery">
+        <div class="main-gallery" id="content">
           <!-- [시작]게시글 들어가는 부분 -->
           <script>
-            for (var i = 1; i <= 1; i++){
-            document.write("<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='img/test.jpeg' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>"
-            )};
+            {% comment %} for (var i = 1; i <= num; i++) {
+              document.write(
+                "<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>"
+              );
+            } {% endcomment %}
           </script>
           <!-- [끝]게시글 들어가는 부분 -->
-
 
           <!-- box 한 단위 -->
           <!--
@@ -148,7 +168,11 @@
         </div>
         <div class="footer__img-box">
           <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
-          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
+          <img
+            src="{% static 'board/img/likelion.png' %}"
+            alt="likelion"
+            class="likelion-img"
+          />
         </div>
       </footer>
     </div>
@@ -158,7 +182,7 @@
         $("#sidebar").addClass("active");
         $(".overlay").fadeIn();
       });
-  
+
       $(".overlay").on("click", function () {
         $("#sidebar").removeClass("active");
         $(".overlay").fadeOut();
@@ -180,75 +204,111 @@
       });
     </script>
     <script>
-      function mission_show(self){
-        if(self == document.getElementById("label1"))
-        {var input_val = "1";}
-        else if(self == document.getElementById("label2"))
-        {var input_val = "2";}
-        else if(self == document.getElementById("label3"))
-        {var input_val = "3";}
-        else if(self == document.getElementById("label4"))
-        {var input_val = "4";}
-        else if(self == document.getElementById("label5"))
-        {var input_val = "5";}
-        $.ajax({
-          url: 'mission_show',
-          type: 'GET',
-          data: {
-            'input_val':input_val
-          },
-          datatype: 'json',
-          success: function(data){
-            num = data['num']
-            team_name = data['team_name']
-            team_members = data['team_members']
-            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
-            console.log(num)
-            console.log(team_name)
-            console.log(team_members)
-            console.log(thumbnail_imagesrc1)
+      const element = document.getElementById("content");
+      $.ajax({
+        url: "mission_show",
+        type: "GET",
+        data: {
+          input_val: "1",
+        },
+        datatype: "json",
+        async: false,
+        success: function (data) {
+          num = data["num"];
+          team_name = data["team_name"];
+          team_members = data["team_members"];
+          thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+          console.log(num);
+          console.log(team_name);
+          console.log(team_members);
+          console.log(thumbnail_imagesrc1);
+          for (var i = 0; i < num; i++) {
+            element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
           }
+        },
+      });
+      function mission_show(self) {
+        if (self == document.getElementById("label1")) {
+          var input_val = "1";
+        } else if (self == document.getElementById("label2")) {
+          var input_val = "2";
+        } else if (self == document.getElementById("label3")) {
+          var input_val = "3";
+        } else if (self == document.getElementById("label4")) {
+          var input_val = "4";
+        } else if (self == document.getElementById("label5")) {
+          var input_val = "5";
+        }
+        $.ajax({
+          url: "mission_show",
+          type: "GET",
+          data: {
+            input_val: input_val,
+          },
+          datatype: "json",
+          async: false,
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            element.innerHTML = "";
+            for (var i = 0; i < num; i++) {
+              element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+            }
+          },
         });
       }
-      function mission_show_semi(self){
-        if(document.getElementById('tab-1').checked == true)
-        {var input_val = "1";}
-        else if(document.getElementById('tab-2').checked == true)
-        {var input_val = "2";}
-        else if(document.getElementById('tab-3').checked == true)
-        {var input_val = "3";}
-        else if(document.getElementById('tab-4').checked == true)
-        {var input_val = "4";}
-        else if(document.getElementById('tab-5').checked == true)
-        {var input_val = "5";}
+      function mission_show_semi(self) {
+        if (document.getElementById("tab-1").checked == true) {
+          var input_val = "1";
+        } else if (document.getElementById("tab-2").checked == true) {
+          var input_val = "2";
+        } else if (document.getElementById("tab-3").checked == true) {
+          var input_val = "3";
+        } else if (document.getElementById("tab-4").checked == true) {
+          var input_val = "4";
+        } else if (document.getElementById("tab-5").checked == true) {
+          var input_val = "5";
+        }
 
-        if(self == document.getElementById("labelA"))
-        {var input_val_at = "A";}
-        else if(self == document.getElementById("labelB"))
-        {var input_val_at = "B";}
-        else if(self == document.getElementById("labelC"))
-        {var input_val_at = "C";}
-        else if(self == document.getElementById("labelD"))
-        {var input_val_at = "D";}
+        if (self == document.getElementById("labelA")) {
+          var input_val_at = "A";
+        } else if (self == document.getElementById("labelB")) {
+          var input_val_at = "B";
+        } else if (self == document.getElementById("labelC")) {
+          var input_val_at = "C";
+        } else if (self == document.getElementById("labelD")) {
+          var input_val_at = "D";
+        }
 
         $.ajax({
-          url: 'mission_show_semi',
-          type: 'GET',
+          url: "mission_show_semi",
+          type: "GET",
+          async: false,
           data: {
-            'input_val':input_val,
-            'input_val_at':input_val_at
+            input_val: input_val,
+            input_val_at: input_val_at,
           },
-          datatype: 'json',
-          success: function(data){
-            num = data['num']
-            team_name = data['team_name']
-            team_members = data['team_members']
-            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
-            console.log(num)
-            console.log(team_name)
-            console.log(team_members)
-            console.log(thumbnail_imagesrc1)
-          }
+          datatype: "json",
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            element.innerHTML = "";
+            for (var i = 0; i < num; i++) {
+              element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+            }
+          },
         });
       }
     </script>
