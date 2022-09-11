@@ -115,7 +115,7 @@
         </div>
         <div class="main-gallery" id="content">
           <!-- [시작]게시글 들어가는 부분 -->
-          <script></script>
+
           <!-- [끝]게시글 들어가는 부분 -->
 
           <!-- box 한 단위 -->
@@ -138,10 +138,11 @@
           -->
           <!-- 끝 -->
         </div>
-        <div class="main-pagenation-box" id="pagenation">
+        <div class="main-pagenation-box">
           <!-- pagenation -->
-          {% comment %} <button class="main-pagenum">1</button> {% endcomment %}
+
           <!--  -->
+          <div id="pagenation"></div>
         </div>
       </section>
       <footer>
@@ -181,7 +182,6 @@
         $("#sidebar").removeClass("active");
         $(".overlay").fadeOut();
       });
-      {% comment %} 미션버튼 누를때 A미션으로 default {% endcomment %}
       $("#tab-1").on("click", function () {
         $("#group-tab-1").prop("checked", true);
       });
@@ -197,16 +197,34 @@
       $("#tab-5").on("click", function () {
         $("#group-tab-1").prop("checked", true);
       });
+      $("#page1").css("color", "red");
     </script>
     <script>
       const element = document.getElementById("content");
       const pagenationElement = document.getElementById("pagenation");
+      const pagenationLabelElement =
+        document.getElementById("pagenation-label");
+      const checkedColor = (k) => {
+        const x = document.getElementsByClassName("pageLabel");
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.backgroundColor = "#d9d9d9";
+        }
+        document.getElementById(`pageLabel${k}`).style.backgroundColor =
+          "#c6d74f";
+      };
       const pagenation = (pageNum) => {
         pagenationElement.innerHTML = "";
         for (var i = 1; i <= pageNum; i++) {
-          pagenationElement.innerHTML += `<button class="main-pagenum" id="page${i}" onclick="mission_show_semi_pageButton(this)" value=${i}>${i}</button>`;
+          if (i === 1) {
+            pagenationElement.innerHTML += `<input type="radio" class="main-pagenum" name="page" id="page${i}" value=${i} ></input>
+            <label for="page${i}" onclick="mission_show_semi_pageButton(this)" class="pageLabel" id="pageLabel${i}" style="background-color:#c6d74f">${i}</label>`;
+            continue;
+          }
+          pagenationElement.innerHTML += `<input type="radio" class="main-pagenum" name="page" id="page${i}" value=${i} style="display:none"></input>
+         <label for="page${i}" onclick="mission_show_semi_pageButton(this)" class="pageLabel" id="pageLabel${i}" style="">${i}</label>`;
         }
       };
+
       const showPost = (pageButtonNum) => {
         element.innerHTML = "";
         for (
@@ -243,6 +261,7 @@
           const pageNum = Math.ceil(num / 12);
           pagenation(pageNum);
           showPost(1);
+          checkedColor(1);
         },
       });
 
@@ -281,6 +300,7 @@
             const pageNum = Math.ceil(num / 12);
             pagenation(pageNum);
             showPost(1);
+            checkedColor(1);
           },
         });
       }
@@ -375,8 +395,10 @@
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
             console.log("value", self.value);
-            console.log(typeof parseInt(self.value));
-            showPost(parseInt(self.value));
+            console.log("self", self);
+            console.log("innerText", parseInt(self.innerText));
+            showPost(parseInt(self.innerText));
+            checkedColor(parseInt(self.innerText));
           },
         });
       }
