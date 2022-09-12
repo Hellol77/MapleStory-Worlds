@@ -40,6 +40,30 @@ def PostUpload(request):
         userM4 = Mission_4.objects.filter(user_id = request.user).exists()
         userM5 = Mission_5.objects.filter(user_id = request.user).exists()
 
+        if request.user.is_authenticated:
+            if Mission_1.objects.filter(user_id = request.user).exists():
+                link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+            else:
+                link1="None"
+            if Mission_2.objects.filter(user_id = request.user).exists():
+                link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+            else:
+                link2="None"
+            if Mission_3.objects.filter(user_id = request.user).exists():
+                link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+            else:
+                link3="None"
+            if Mission_4.objects.filter(user_id = request.user).exists():
+                link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+            else:
+                link4="None"
+            if Mission_5.objects.filter(user_id = request.user).exists():
+                link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+            else:
+                link5="None"
+        else:
+            link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+
         context = {
                 "group": group,
                 "userM1": userM1,
@@ -47,11 +71,46 @@ def PostUpload(request):
                 "userM3": userM3,
                 "userM4": userM4,
                 "userM5": userM5,
+                "link1":link1,
+                "link2":link2,
+                "link3":link3,
+                "link4":link4,
+                "link5":link5,
             }
         return render(request, 'board/register.html', context)
 
 def CheckView(request):
-    return render(request, 'board/check.html')
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+    context  = {
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
+    }
+    return render(request, 'board/check.html', context)
 
 
 
@@ -59,8 +118,11 @@ def DetailView_M1(request,pk):
     pagepk = get_object_or_404(Mission_1, pk=pk)
     missionTag = "M1"
 
-    if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
-        edit_auth= True
+    if request.user.is_authenticated:
+        if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            edit_auth= True
+        else:
+            edit_auth=False
     else:
         edit_auth=False
 
@@ -71,7 +133,6 @@ def DetailView_M1(request,pk):
         image_list.append('/media/'+str(pagepk.image3))
     if pagepk.image4 != '':
         image_list.append('/media/'+str(pagepk.image4))
-
 
     if Mission_1.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_1.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
@@ -85,6 +146,30 @@ def DetailView_M1(request,pk):
             the_next = Mission_1.objects.filter(pk__gt=pk).order_by('pk').first().pk
         except:
             the_next = Mission_1.objects.filter(pk__lt=pk).order_by('pk').first().pk
+    
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
 
     context = {
         "pk" : pk,
@@ -97,6 +182,11 @@ def DetailView_M1(request,pk):
         "the_prev" : the_prev,
         "the_next" : the_next,
         "image_list" : image_list,
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
     }
     return render(request, 'board/detail.html', context)
 
@@ -104,8 +194,11 @@ def DetailView_M2(request,pk):
     pagepk = get_object_or_404(Mission_2, pk=pk)
     missionTag = "M2"
 
-    if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
-        edit_auth= True
+    if request.user.is_authenticated:
+        if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            edit_auth= True
+        else:
+            edit_auth=False
     else:
         edit_auth=False
 
@@ -130,6 +223,30 @@ def DetailView_M2(request,pk):
         except:
             the_next = Mission_2.objects.filter(pk__lt=pk).order_by('pk').first().pk
 
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+
     context = {
         "pk" : pk,
         "tag" : missionTag,
@@ -141,6 +258,11 @@ def DetailView_M2(request,pk):
         "the_prev" : the_prev,
         "the_next" : the_next,
         "image_list" : image_list,
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
     }
     return render(request, 'board/detail.html', context)
 
@@ -148,8 +270,11 @@ def DetailView_M3(request,pk):
     pagepk = get_object_or_404(Mission_3, pk=pk)
     missionTag = "M3"
 
-    if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
-        edit_auth= True
+    if request.user.is_authenticated:
+        if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            edit_auth= True
+        else:
+            edit_auth=False
     else:
         edit_auth=False
 
@@ -174,6 +299,30 @@ def DetailView_M3(request,pk):
         except:
             the_next = Mission_3.objects.filter(pk__lt=pk).order_by('pk').first().pk
 
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+
     context = {
         "pk" : pk,
         "tag" : missionTag,
@@ -185,6 +334,11 @@ def DetailView_M3(request,pk):
         "the_prev" : the_prev,
         "the_next" : the_next,
         "image_list" : image_list,
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
     }
     return render(request, 'board/detail.html', context)
 
@@ -192,8 +346,11 @@ def DetailView_M4(request,pk):
     pagepk = get_object_or_404(Mission_4, pk=pk)
     missionTag = "M4"
 
-    if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
-        edit_auth= True
+    if request.user.is_authenticated:
+        if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            edit_auth= True
+        else:
+            edit_auth=False
     else:
         edit_auth=False
 
@@ -218,6 +375,30 @@ def DetailView_M4(request,pk):
         except:
             the_next = Mission_4.objects.filter(pk__lt=pk).order_by('pk').first().pk
 
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+
     context = {
         "pk" : pk,
         "tag" : missionTag,
@@ -229,6 +410,11 @@ def DetailView_M4(request,pk):
         "the_prev" : the_prev,
         "the_next" : the_next,
         "image_list" : image_list,
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
     }
     return render(request, 'board/detail.html', context)
 
@@ -236,8 +422,11 @@ def DetailView_M5(request,pk):
     pagepk = get_object_or_404(Mission_5, pk=pk)
     missionTag = "M5"
 
-    if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
-        edit_auth= True
+    if request.user.is_authenticated:
+        if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            edit_auth= True
+        else:
+            edit_auth=False
     else:
         edit_auth=False
     
@@ -262,6 +451,30 @@ def DetailView_M5(request,pk):
         except:
             the_next = Mission_5.objects.filter(pk__lt=pk).order_by('pk').first().pk
 
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+
     context = {
         "pk" : pk,
         "tag" : missionTag,
@@ -273,6 +486,11 @@ def DetailView_M5(request,pk):
         "the_prev" : the_prev,
         "the_next" : the_next,
         "image_list" : image_list,
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
     }
     return render(request, 'board/detail.html', context)
 
