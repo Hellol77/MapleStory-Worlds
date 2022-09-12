@@ -247,8 +247,11 @@ def mission_show(request):
     for i in range(num):
         team_name.append(listall[i].team_name)
         team_members.append(listall[i].team_members)
-        thumbnail_imagesrc1.append(str(listall[i].image1))
-        page_src.append('detail/M'+input_val+'/'+listall[i].id)
+        if listall[i].image1 == '':
+            thumbnail_imagesrc1.append("/static/board/img/nothumnail.png")
+        else:
+            thumbnail_imagesrc1.append(str(listall[i].image1))
+        page_src.append('/detail/M'+input_val+'/'+str(listall[i].id))
 
     context={
         'num':num,
@@ -277,8 +280,11 @@ def mission_show_semi(request):
     for i in range(num):
         team_name.append(listall[i].team_name)
         team_members.append(listall[i].team_members)
-        thumbnail_imagesrc1.append(str(listall[i].image1))
-        page_src.append('detail/M'+input_val+'/'+str(listall[i].id))
+        if listall[i].image1 == '':
+            thumbnail_imagesrc1.append("/static/board/img/nothumnail.png")
+        else:
+            thumbnail_imagesrc1.append(str(listall[i].image1))
+        page_src.append('/detail/M'+input_val+'/'+str(listall[i].id))
 
     context={
         'num':num,

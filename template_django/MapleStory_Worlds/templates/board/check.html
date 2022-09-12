@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'board/css/check.css' %}" />
     <title>MapleStory Worlds</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
   </head>
   <body>
     <div class="wrap">
@@ -94,15 +93,10 @@
             <label for="group-tab-4" onclick="mission_show_semi(this)" id="labelD">D</label>
           </div>
         </div>
-        <div class="main-gallery">
+        <div class="main-gallery" id="content">
           <!-- [시작]게시글 들어가는 부분 -->
-          <script>
-            for (var i = 1; i <= 1; i++){
-            document.write("<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='img/test.jpeg' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>"
-            )};
-          </script>
-          <!-- [끝]게시글 들어가는 부분 -->
 
+          <!-- [끝]게시글 들어가는 부분 -->
 
           <!-- box 한 단위 -->
           <!--
@@ -126,8 +120,9 @@
         </div>
         <div class="main-pagenation-box">
           <!-- pagenation -->
-          <button class="main-pagenum">1</button>
+
           <!--  -->
+          <div id="pagenation"></div>
         </div>
       </section>
       <footer>
@@ -147,9 +142,8 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
-          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
-        </div>
+          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
+          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>        </div>
       </footer>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -178,81 +172,217 @@
       $("#tab-5").on("click", function () {
         $("#group-tab-1").prop("checked", true);
       });
+      $("#page1").css("color", "red");
     </script>
     <script>
-      function mission_show(self){
-        if(self == document.getElementById("label1"))
-        {var input_val = "1";}
-        else if(self == document.getElementById("label2"))
-        {var input_val = "2";}
-        else if(self == document.getElementById("label3"))
-        {var input_val = "3";}
-        else if(self == document.getElementById("label4"))
-        {var input_val = "4";}
-        else if(self == document.getElementById("label5"))
-        {var input_val = "5";}
-        $.ajax({
-          url: 'mission_show',
-          type: 'GET',
-          data: {
-            'input_val':input_val
-          },
-          datatype: 'json',
-          success: function(data){
-            num = data['num']
-            team_name = data['team_name']
-            team_members = data['team_members']
-            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
-            page_src = data['page_src']
-            console.log(num)
-            console.log(team_name)
-            console.log(team_members)
-            console.log(thumbnail_imagesrc1)
-            console.log(page_src)
+      const element = document.getElementById("content");
+      const pagenationElement = document.getElementById("pagenation");
+      const pagenationLabelElement =
+        document.getElementById("pagenation-label");
+      const checkedColor = (k) => {
+        const x = document.getElementsByClassName("pageLabel");
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.backgroundColor = "#d9d9d9";
+        }
+        document.getElementById(`pageLabel${k}`).style.backgroundColor =
+          "#c6d74f";
+      };
+      const pagenation = (pageNum) => {
+        pagenationElement.innerHTML = "";
+        for (var i = 1; i <= pageNum; i++) {
+          if (i === 1) {
+            pagenationElement.innerHTML += `<input type="radio" class="main-pagenum" name="page" id="page${i}" value=${i} ></input>
+            <label for="page${i}" onclick="mission_show_semi_pageButton(this)" class="pageLabel" id="pageLabel${i}" style="background-color:#c6d74f">${i}</label>`;
+            continue;
           }
+          pagenationElement.innerHTML += `<input type="radio" class="main-pagenum" name="page" id="page${i}" value=${i} style="display:none"></input>
+         <label for="page${i}" onclick="mission_show_semi_pageButton(this)" class="pageLabel" id="pageLabel${i}" style="">${i}</label>`;
+        }
+      };
+
+      const showPost = (pageButtonNum) => {
+        element.innerHTML = "";
+        for (
+          var i = 0 + 12 * (pageButtonNum - 1);
+          i < 12 * pageButtonNum;
+          i++
+        ) {
+          if (team_members[i] === undefined) {
+            break;
+          }
+          element.innerHTML += `<a class='main-gallery__box' href='${page_src[i]}'><div class='main-gallery-img'><img class='main-gallery-img' src="${thumbnail_imagesrc1[0]}" alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명 ${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원 ${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+        }
+      };
+      $.ajax({
+        url: "mission_show",
+        type: "GET",
+        data: {
+          input_val: "1",
+        },
+        datatype: "json",
+        async: false,
+        success: function (data) {
+          num = data["num"];
+          team_name = data["team_name"];
+          team_members = data["team_members"];
+          thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+          page_src = data["page_src"];
+          console.log(num);
+          console.log(team_name);
+          console.log(team_members);
+          console.log(thumbnail_imagesrc1);
+          console.log(page_src);
+          if (num === 0) {
+            num = 1;
+          }
+          const pageNum = Math.ceil(num / 12);
+          pagenation(pageNum);
+          showPost(1);
+          checkedColor(1);
+        },
+      });
+
+      function mission_show(self) {
+        if (self == document.getElementById("label1")) {
+          var input_val = "1";
+        } else if (self == document.getElementById("label2")) {
+          var input_val = "2";
+        } else if (self == document.getElementById("label3")) {
+          var input_val = "3";
+        } else if (self == document.getElementById("label4")) {
+          var input_val = "4";
+        } else if (self == document.getElementById("label5")) {
+          var input_val = "5";
+        }
+        $.ajax({
+          url: "mission_show",
+          type: "GET",
+          data: {
+            input_val: input_val,
+          },
+          datatype: "json",
+          async: false,
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            console.log(page_src);
+            if (num === 0) {
+              num = 1;
+            }
+            const pageNum = Math.ceil(num / 12);
+            pagenation(pageNum);
+            showPost(1);
+            checkedColor(1);
+          },
         });
       }
-      function mission_show_semi(self){
-        if(document.getElementById('tab-1').checked == true)
-        {var input_val = "1";}
-        else if(document.getElementById('tab-2').checked == true)
-        {var input_val = "2";}
-        else if(document.getElementById('tab-3').checked == true)
-        {var input_val = "3";}
-        else if(document.getElementById('tab-4').checked == true)
-        {var input_val = "4";}
-        else if(document.getElementById('tab-5').checked == true)
-        {var input_val = "5";}
+      function mission_show_semi(self) {
+        if (document.getElementById("tab-1").checked == true) {
+          var input_val = "1";
+        } else if (document.getElementById("tab-2").checked == true) {
+          var input_val = "2";
+        } else if (document.getElementById("tab-3").checked == true) {
+          var input_val = "3";
+        } else if (document.getElementById("tab-4").checked == true) {
+          var input_val = "4";
+        } else if (document.getElementById("tab-5").checked == true) {
+          var input_val = "5";
+        }
 
-        if(self == document.getElementById("labelA"))
-        {var input_val_at = "A";}
-        else if(self == document.getElementById("labelB"))
-        {var input_val_at = "B";}
-        else if(self == document.getElementById("labelC"))
-        {var input_val_at = "C";}
-        else if(self == document.getElementById("labelD"))
-        {var input_val_at = "D";}
+        if (self == document.getElementById("labelA")) {
+          var input_val_at = "A";
+        } else if (self == document.getElementById("labelB")) {
+          var input_val_at = "B";
+        } else if (self == document.getElementById("labelC")) {
+          var input_val_at = "C";
+        } else if (self == document.getElementById("labelD")) {
+          var input_val_at = "D";
+        }
 
         $.ajax({
-          url: 'mission_show_semi',
-          type: 'GET',
+          url: "mission_show_semi",
+          type: "GET",
+          async: false,
           data: {
-            'input_val':input_val,
-            'input_val_at':input_val_at
+            input_val: input_val,
+            input_val_at: input_val_at,
           },
-          datatype: 'json',
-          success: function(data){
-            num = data['num']
-            team_name = data['team_name']
-            team_members = data['team_members']
-            thumbnail_imagesrc1 = data['thumbnail_imagesrc1']
-            page_src = data['page_src']
-            console.log(num)
-            console.log(team_name)
-            console.log(team_members)
-            console.log(thumbnail_imagesrc1)
-            console.log(page_src)
-          }
+          datatype: "json",
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            console.log(page_src);
+            if (num === 0) {
+              num = 1;
+            }
+            const pageNum = Math.ceil(num / 12);
+            pagenation(pageNum);
+            showPost(1);
+          },
+        });
+      }
+      function mission_show_semi_pageButton(self) {
+        if (document.getElementById("tab-1").checked == true) {
+          var input_val = "1";
+        } else if (document.getElementById("tab-2").checked == true) {
+          var input_val = "2";
+        } else if (document.getElementById("tab-3").checked == true) {
+          var input_val = "3";
+        } else if (document.getElementById("tab-4").checked == true) {
+          var input_val = "4";
+        } else if (document.getElementById("tab-5").checked == true) {
+          var input_val = "5";
+        }
+
+        if (document.getElementById("group-tab-1").checked == true) {
+          var input_val_at = "A";
+        } else if (document.getElementById("group-tab-2").checked == true) {
+          var input_val_at = "B";
+        } else if (document.getElementById("group-tab-3").checked == true) {
+          var input_val_at = "C";
+        } else if (document.getElementById("group-tab-4").checked == true) {
+          var input_val_at = "D";
+        }
+        $.ajax({
+          url: "mission_show_semi",
+          type: "GET",
+          async: false,
+          data: {
+            input_val: input_val,
+            input_val_at: input_val_at,
+          },
+          datatype: "json",
+          success: function (data) {
+            num = data["num"];
+            team_name = data["team_name"];
+            team_members = data["team_members"];
+            thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
+            console.log(num);
+            console.log(team_name);
+            console.log(team_members);
+            console.log(thumbnail_imagesrc1);
+            console.log(page_src);
+            console.log("value", self.value);
+            console.log("self", self);
+            console.log("innerText", parseInt(self.innerText));
+            showPost(parseInt(self.innerText));
+            checkedColor(parseInt(self.innerText));
+          },
         });
       }
     </script>

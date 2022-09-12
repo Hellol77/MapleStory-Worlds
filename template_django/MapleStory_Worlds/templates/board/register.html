@@ -222,6 +222,7 @@
             name="team_name"
             value="{{team_name}}"
             maxlength="17"
+            required
           />
           <label class="labelClass" for="id_team_members">팀원</label>
           <input
@@ -231,6 +232,7 @@
             name="team_members"
             value="{{team_members}}"
             maxlength="17"
+            required
           />
           <label class="labelClass" for="id_mission">미션 설명</label>
 
@@ -368,6 +370,7 @@
           {% endif %}
         </form>
       </section>
+      
       <footer>
         <div class="footer-text up-text">
           ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
@@ -385,9 +388,8 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
-          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
-        </div>
+          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
+          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>        </div>
       </footer>
     </div>
   </body>
@@ -426,6 +428,7 @@
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
     });
+
 
     $(".submit-button").on("click", function () {
       var userM1 = "{{userM1}}";
