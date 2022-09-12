@@ -233,7 +233,7 @@ form {
   display: flex;
   flex-direction: column;
 }
-<<<<<<< HEAD
+
 .mobile-block {
   display: none;
 }
@@ -254,7 +254,7 @@ form {
     z-index: 1000;
   }
 }
-=======
+
 
 .moveconfirm {
   position: fixed;
@@ -332,4 +332,3 @@ form {
   justify-content: center;
   align-items: center;
 }
->>>>>>> 60fa9a2b11e3704711b0998484ccf056147b7c11

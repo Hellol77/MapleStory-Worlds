@@ -379,7 +379,7 @@ input::placeholder {
 .ck-editor__editable {
   height: 480px;
 }
-<<<<<<< HEAD
+
 .mobile-block {
   display: none;
 }
@@ -387,7 +387,7 @@ input::placeholder {
   margin-top: 40px;
   font-weight: 700;
 }
-=======
+
 
 .moveconfirm {
   position: fixed;
@@ -466,7 +466,7 @@ input::placeholder {
   align-items: center;
 }
 
->>>>>>> 60fa9a2b11e3704711b0998484ccf056147b7c11
+
 @media screen and (max-width: 767px) {
   .form {
     justify-content: center;

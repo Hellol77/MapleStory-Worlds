@@ -284,7 +284,7 @@ section {
   width: 100%;
   height: 100%;
 }
-<<<<<<< HEAD
+
 .mobile-block {
   display: none;
 }
@@ -305,7 +305,7 @@ section {
     z-index: 1000;
   }
 }
-=======
+
 
 .moveconfirm {
   position: fixed;
@@ -383,4 +383,4 @@ section {
   justify-content: center;
   align-items: center;
 }
->>>>>>> 60fa9a2b11e3704711b0998484ccf056147b7c11
+
