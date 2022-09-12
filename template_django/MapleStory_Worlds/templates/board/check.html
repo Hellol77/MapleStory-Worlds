@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,7 +37,7 @@
         <!-- 로그인 안했을 떄 -->
         <a href="./login" class="header__right">
           <button class="header__right__button">로그인</button>
-        </a> 
+        </a>
         {% endif %}
         <nav id="sidebar">
           <div class="sidebar-title">
@@ -70,7 +70,7 @@
           <input type="radio" id="tab-3" name="show" value="3" />
           <input type="radio" id="tab-4" name="show" value="4" />
           <input type="radio" id="tab-5" name="show" value="5" />
-        
+
           <div class="tab">
             <label for="tab-1" onclick="mission_show(this)" id="label1"></label>
             <label for="tab-2" onclick="mission_show(this)" id="label2"></label>
@@ -87,10 +87,30 @@
           <input id="group-tab-3" name="group" type="radio" value="C" />
           <input id="group-tab-4" name="group" type="radio" value="D" />
           <div class="group-tab">
-            <label for="group-tab-1" onclick="mission_show_semi(this)" id="labelA">A</label>
-            <label for="group-tab-2" onclick="mission_show_semi(this)" id="labelB">B</label>
-            <label for="group-tab-3" onclick="mission_show_semi(this)" id="labelC">C</label>
-            <label for="group-tab-4" onclick="mission_show_semi(this)" id="labelD">D</label>
+            <label
+              for="group-tab-1"
+              onclick="mission_show_semi(this)"
+              id="labelA"
+              >A</label
+            >
+            <label
+              for="group-tab-2"
+              onclick="mission_show_semi(this)"
+              id="labelB"
+              >B</label
+            >
+            <label
+              for="group-tab-3"
+              onclick="mission_show_semi(this)"
+              id="labelC"
+              >C</label
+            >
+            <label
+              for="group-tab-4"
+              onclick="mission_show_semi(this)"
+              id="labelD"
+              >D</label
+            >
           </div>
         </div>
         <div class="main-gallery" id="content">
@@ -143,7 +163,8 @@
         </div>
         <div class="footer__img-box">
           <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
-          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>        </div>
+          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>
+        </div>
       </footer>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -152,7 +173,7 @@
         $("#sidebar").addClass("active");
         $(".overlay").fadeIn();
       });
-  
+
       $(".overlay").on("click", function () {
         $("#sidebar").removeClass("active");
         $(".overlay").fadeOut();
@@ -226,12 +247,14 @@
           team_name = data["team_name"];
           team_members = data["team_members"];
           thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+
           page_src = data["page_src"];
           console.log(num);
           console.log(team_name);
           console.log(team_members);
           console.log(thumbnail_imagesrc1);
           console.log(page_src);
+
           if (num === 0) {
             num = 1;
           }

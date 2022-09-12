@@ -334,8 +334,8 @@ input::placeholder {
   display: flex;
 }
 
-.none{
-display: none;
+.none {
+  display: none;
 }
 /*
 .ck.ck-editor {
