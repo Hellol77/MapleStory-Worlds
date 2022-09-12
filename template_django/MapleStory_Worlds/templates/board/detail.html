@@ -18,10 +18,10 @@
           <a class="header__left__title" href="/"
             >MapleStory Worlds Super Hackathon</a
           >
-          <a class="header__left__sub-title" href="../register"
+          <a class="header__left__sub-title" href="../../register"
             >미션 등록하기</a
           >
-          <a class="header__left__sub-title" href="../check">미션 확인하기</a>
+          <a class="header__left__sub-title" href="../../check">미션 확인하기</a>
         </div>
         {% if user.is_active %}
         <!-- 로그인 완료 했을때 코드 -->
@@ -36,11 +36,11 @@
         {% endif %}
         <nav id="sidebar">
           <div class="sidebar-title">
-            <div class="sidebar__title-name">이름</div>
-            <a class="sidebar__title-logout">로그아웃</a>
+            <div class="sidebar__title-name">{{user.name}}</div>
+            <a class="sidebar__title-logout" href="/logout">로그아웃</a>
           </div>
           <div class="sidebar__main">
-            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-title">슈퍼해커톤 {{user.get_level_display}}</div>
             <div class="sidebar__main-line"></div>
             <a class="sidebar__main-button color1">첫 번째 미션</a>
             <a class="sidebar__main-button color2">두 번째 미션</a>
@@ -59,11 +59,11 @@
           </div>
         </div>
         <div class="main-button">
-          <input type="radio" id="tab-1" name="show" value="1" checked />
-          <input type="radio" id="tab-2" name="show" value="2" />
-          <input type="radio" id="tab-3" name="show" value="3" />
-          <input type="radio" id="tab-4" name="show" value="4" />
-          <input type="radio" id="tab-5" name="show" value="5" />
+          <input type="radio" id="tab-1" name="show" value="1" disabled/>
+          <input type="radio" id="tab-2" name="show" value="2" disabled/>
+          <input type="radio" id="tab-3" name="show" value="3" disabled/>
+          <input type="radio" id="tab-4" name="show" value="4" disabled/>
+          <input type="radio" id="tab-5" name="show" value="5" disabled/>
           <div class="tab">
             <label for="tab-1"></label>
             <label for="tab-2"></label>
@@ -73,6 +73,7 @@
           </div>
         </div>
         <div class="main-line"></div>
+        {% if tag == "M1" %}
         <div class="main-subtext show mission1">
           <div class="main-subtext-title">첫 번째 미션</div>
           <div class="main-subtext-content">
@@ -86,8 +87,8 @@
             감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
           </div>
         </div>
-
-        <div class="main-subtext none mission2">
+        {% elif tag == "M2" %}
+        <div class="main-subtext mission2">
           <div class="main-subtext-title">두 번째 미션</div>
           <div class="main-subtext-content">
             메이플 스토리 월드에 콘텐츠를 출시 하려면, 메이플 스토리 리소스를
@@ -102,8 +103,8 @@
             감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
           </div>
         </div>
-
-        <div class="main-subtext none mission3">
+        {% elif tag == "M3" %}
+        <div class="main-subtext mission3">
           <div class="main-subtext-title">세 번째 미션</div>
           <div class="main-subtext-content">
             메이플 스토리 월드에 콘텐츠를 출시하기 위해서는 팀원들과 함께 협업이
@@ -132,8 +133,8 @@
             감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
           </div>
         </div>
-
-        <div class="main-subtext none mission4">
+        {% elif tag == "M4" %}
+        <div class="main-subtext mission4">
           <div class="main-subtext-title">네 번째 미션</div>
           <div class="main-subtext-content">
             공동 월드에서 팀원들과 함께 작업하고 인증해주세요!<br />
@@ -150,8 +151,8 @@
             감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
           </div>
         </div>
-
-        <div class="main-subtext none mission5">
+        {% elif tag == "M5" %}
+        <div class="main-subtext mission5">
           <div class="main-subtext-title">다섯 번째 미션</div>
           <div class="main-subtext-content">
             팀원들과 짧은 시간이었지만 이야기 많이 나누셨나요?<br /><br />
@@ -171,7 +172,7 @@
             감점될 수 있으니, 꼭 기한 내에 제출해주시기 바랍니다.
           </div>
         </div>
-
+        {% endif %}
         <div class="content-box">
           <div class="confirm">
             <div class="confirm-title">미션 삭제</div>
@@ -180,7 +181,7 @@
             <div class="confirm-answer-box">
               <div class="confirm-answer no">아니오</div>
               <!-- 실제 삭제 버튼 -->
-                <button class="confirm-answer yes" onclick="location.href='{{pk}}/delete'">네</button>
+                <button class="confirm-answer yes" onclick="location.href='{{tag}}/{{pk}}/delete'">네</button>
             </div>
           </div>
           <div class="content padding-top">
@@ -203,7 +204,7 @@
               <!-- 수정 삭제 버튼 자신이 만든 게시글에서만 -->
 
               <div class="content-edit-box" {% if edit_auth == False %} style="visibility:hidden" {% endif %}>
-                <a href="/register/{{pk}}/edit/" class="content-edit">수정</a>
+                <a href="/register/{{tag}}/{{pk}}/edit/" class="content-edit">수정</a>
                 <div class="content-edit delete submit-button">삭제</div>
               </div>
 
@@ -234,11 +235,11 @@
           </div>
         </div>
         <div class="next-prev">
-          <button class="move-button">이전으로</button>
-          <button class="move-button">다음으로</button>
+          <button class="move-button" onClick="location.href='./{{the_prev}}'">이전으로</button>
+          <button class="move-button" onClick="location.href='./{{the_next}}'">다음으로</button>
         </div>
         <div class="move-check">
-          <a href="../check" class="move-to-check-button">목록으로</a>
+          <a href="../../check" class="move-to-check-button">목록으로</a>
         </div>
       </section>
       <div class="confirm-overlay"></div>
@@ -259,9 +260,8 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
-          <img src="{% static 'board/img/likelion.png' %}" alt="likelion" class="likelion-img" />
-        </div>
+          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
+          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>        </div>
       </footer>
     </div>
   </body>

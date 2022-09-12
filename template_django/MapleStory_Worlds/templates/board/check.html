@@ -41,11 +41,11 @@
         {% endif %}
         <nav id="sidebar">
           <div class="sidebar-title">
-            <div class="sidebar__title-name">이름</div>
+            <div class="sidebar__title-name">{{user.name}}</div>
             <a class="sidebar__title-logout" href="/logout">로그아웃</a>
           </div>
           <div class="sidebar__main">
-            <div class="sidebar__main-title">슈퍼해커톤 기획단</div>
+            <div class="sidebar__main-title">슈퍼해커톤 {{user.get_level_display}}</div>
             <div class="sidebar__main-line"></div>
             <a class="sidebar__main-button color1">첫 번째 미션</a>
             <a class="sidebar__main-button color2">두 번째 미션</a>
@@ -162,12 +162,8 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <img src="{% static 'board/img/nexon.png' %}" alt="NEXON" />
-          <img
-            src="{% static 'board/img/likelion.png' %}"
-            alt="likelion"
-            class="likelion-img"
-          />
+          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
+          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>
         </div>
       </footer>
     </div>
@@ -235,7 +231,7 @@
           if (team_members[i] === undefined) {
             break;
           }
-          element.innerHTML += `<a class='main-gallery__box' href='detail.html'><div class='main-gallery-img'><img class='main-gallery-img' src='' alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+          element.innerHTML += `<a class='main-gallery__box' href='${page_src[i]}'><div class='main-gallery-img'><img class='main-gallery-img' src="${thumbnail_imagesrc1[0]}" alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명 ${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원 ${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
         }
       };
       $.ajax({
@@ -251,10 +247,14 @@
           team_name = data["team_name"];
           team_members = data["team_members"];
           thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+
+          page_src = data["page_src"];
           console.log(num);
           console.log(team_name);
           console.log(team_members);
           console.log(thumbnail_imagesrc1);
+          console.log(page_src);
+
           if (num === 0) {
             num = 1;
           }
@@ -290,10 +290,12 @@
             team_name = data["team_name"];
             team_members = data["team_members"];
             thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
             console.log(num);
             console.log(team_name);
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
+            console.log(page_src);
             if (num === 0) {
               num = 1;
             }
@@ -341,10 +343,12 @@
             team_name = data["team_name"];
             team_members = data["team_members"];
             thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
             console.log(num);
             console.log(team_name);
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
+            console.log(page_src);
             if (num === 0) {
               num = 1;
             }
@@ -390,10 +394,12 @@
             team_name = data["team_name"];
             team_members = data["team_members"];
             thumbnail_imagesrc1 = data["thumbnail_imagesrc1"];
+            page_src = data["page_src"];
             console.log(num);
             console.log(team_name);
             console.log(team_members);
             console.log(thumbnail_imagesrc1);
+            console.log(page_src);
             console.log("value", self.value);
             console.log("self", self);
             console.log("innerText", parseInt(self.innerText));
