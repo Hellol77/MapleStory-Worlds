@@ -1,12 +1,43 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
 from .forms import LoginForm
+from board.models import Mission_1, Mission_2, Mission_3, Mission_4, Mission_5
 from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
 def main_view(request):
-    return render(request, 'users/index.html')
+    if request.user.is_authenticated:
+        if Mission_1.objects.filter(user_id = request.user).exists():
+            link1 = "/detail/M1/"+str(Mission_1.objects.filter(user_id = request.user)[0].id)
+        else:
+            link1="None"
+        if Mission_2.objects.filter(user_id = request.user).exists():
+            link2 = "/detail/M2/"+str(Mission_2.objects.filter(user_id = request.user)[0].id)
+        else:
+            link2="None"
+        if Mission_3.objects.filter(user_id = request.user).exists():
+            link3 = "/detail/M3/"+str(Mission_3.objects.filter(user_id = request.user)[0].id)
+        else:
+            link3="None"
+        if Mission_4.objects.filter(user_id = request.user).exists():
+            link4 = "/detail/M4/"+str(Mission_4.objects.filter(user_id = request.user)[0].id)
+        else:
+            link4="None"
+        if Mission_5.objects.filter(user_id = request.user).exists():
+            link5 = "/detail/M5/"+str(Mission_5.objects.filter(user_id = request.user)[0].id)
+        else:
+            link5="None"
+    else:
+        link1, link2, link3, link4, link5 = "None", "None", "None", "None", "None"
+    context  = {
+        "link1":link1,
+        "link2":link2,
+        "link3":link3,
+        "link4":link4,
+        "link5":link5,
+    }
+    return render(request, 'users/index.html', context)
 
 class LoginView(FormView):
     template_name = 'users/login.html'
@@ -23,6 +54,7 @@ class LoginView(FormView):
             login(self.request, user)
 
         return super().form_valid(form)
+
 
 def logout_view(request):
     logout(request)
