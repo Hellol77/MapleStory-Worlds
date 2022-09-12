@@ -13,6 +13,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
+    <div class="mobile-block">
+      <img src="{% static 'board/img/block.png' %}" />
+      <div class="mobile-block-text">더 큰 화면으로 접속해주세요..</div>
+    </div>
     <div class="wrap">
       <header>
         <div class="header__left">
@@ -45,7 +49,9 @@
             <a class="sidebar__title-logout" href="/logout">로그아웃</a>
           </div>
           <div class="sidebar__main">
-            <div class="sidebar__main-title">슈퍼해커톤 {{user.get_level_display}}</div>
+            <div class="sidebar__main-title">
+              슈퍼해커톤 {{user.get_level_display}}
+            </div>
             <div class="sidebar__main-line"></div>
             <a class="sidebar__main-button color1">첫 번째 미션</a>
             <a class="sidebar__main-button color2">두 번째 미션</a>
@@ -162,8 +168,15 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
-          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>
+          <a href="https://maplestoryworlds.nexon.com/play/" target="_blank"
+            ><img src="{% static 'users/img/nexon.png' %}" alt="NEXON"
+          /></a>
+          <a href="https://www.likelion.net/" target="_blank"
+            ><img
+              src="{% static 'users/img/likelion.png' %}"
+              alt="likelion"
+              class="likelion-img"
+          /></a>
         </div>
       </footer>
     </div>

@@ -341,7 +341,7 @@ input::placeholder {
   background-color: #ffb62a;
   color: black;
   width: 50%;
-  margin-left:70px;
+  margin-left: 70px;
   margin-top: 20px;
   border: 1px solid #ffffff;
   border-radius: 32px;
@@ -368,8 +368,8 @@ input::placeholder {
   display: flex;
 }
 
-.none{
-display: none;
+.none {
+  display: none;
 }
 
 .ck.ck-editor {
@@ -379,7 +379,13 @@ display: none;
 .ck-editor__editable {
   height: 480px;
 }
-
+.mobile-block {
+  display: none;
+}
+.mobile-block-text {
+  margin-top: 40px;
+  font-weight: 700;
+}
 @media screen and (max-width: 767px) {
   .form {
     justify-content: center;
@@ -417,5 +423,15 @@ display: none;
     width: 340px;
     max-width: 340px;
   }
-
+  .mobile-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+  }
 }
