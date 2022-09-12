@@ -231,7 +231,7 @@
           if (team_members[i] === undefined) {
             break;
           }
-          element.innerHTML += `<a class='main-gallery__box' href='${page_src[i]}'><div class='main-gallery-img'><img class='main-gallery-img' src="${thumbnail_imagesrc1[0]}" alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명 ${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원 ${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
+          element.innerHTML += `<a class='main-gallery__box' href='${page_src[i]}'><div class='main-gallery-img'><img class='main-gallery-img' src="${thumbnail_imagesrc1[i]}" alt='img' /></div><div class='main-gallery-text'><div class='main-gallery-team'><span>팀명 ${team_name[i]}</span><span class='main-gallery-detail'>{{list.team_name}}</span></div><div class='main-gallery-name'><span>팀원 ${team_members[i]}</span><span class='main-gallery-detail'>{{list.team_members}}</span></div></div></a>`;
         }
       };
       $.ajax({

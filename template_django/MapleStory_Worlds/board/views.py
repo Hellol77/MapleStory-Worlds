@@ -64,6 +64,15 @@ def DetailView_M1(request,pk):
     else:
         edit_auth=False
 
+    image_list = []
+    if pagepk.image2 != '':
+        image_list.append('/media/'+str(pagepk.image2))
+    if pagepk.image3 != '':
+        image_list.append('/media/'+str(pagepk.image3))
+    if pagepk.image4 != '':
+        image_list.append('/media/'+str(pagepk.image4))
+
+
     if Mission_1.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_1.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
         the_next = pk
@@ -87,6 +96,7 @@ def DetailView_M1(request,pk):
         "edit_auth" : edit_auth,
         "the_prev" : the_prev,
         "the_next" : the_next,
+        "image_list" : image_list,
     }
     return render(request, 'board/detail.html', context)
 
@@ -98,6 +108,14 @@ def DetailView_M2(request,pk):
         edit_auth= True
     else:
         edit_auth=False
+
+    image_list = []
+    if pagepk.image2 != '':
+        image_list.append('/media/'+str(pagepk.image2))
+    if pagepk.image3 != '':
+        image_list.append('/media/'+str(pagepk.image3))
+    if pagepk.image4 != '':
+        image_list.append('/media/'+str(pagepk.image4))
 
     if Mission_2.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_2.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
@@ -122,6 +140,7 @@ def DetailView_M2(request,pk):
         "edit_auth" : edit_auth,
         "the_prev" : the_prev,
         "the_next" : the_next,
+        "image_list" : image_list,
     }
     return render(request, 'board/detail.html', context)
 
@@ -133,6 +152,14 @@ def DetailView_M3(request,pk):
         edit_auth= True
     else:
         edit_auth=False
+
+    image_list = []
+    if pagepk.image2 != '':
+        image_list.append('/media/'+str(pagepk.image2))
+    if pagepk.image3 != '':
+        image_list.append('/media/'+str(pagepk.image3))
+    if pagepk.image4 != '':
+        image_list.append('/media/'+str(pagepk.image4))
     
     if Mission_3.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_3.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
@@ -157,6 +184,7 @@ def DetailView_M3(request,pk):
         "edit_auth" : edit_auth,
         "the_prev" : the_prev,
         "the_next" : the_next,
+        "image_list" : image_list,
     }
     return render(request, 'board/detail.html', context)
 
@@ -168,6 +196,14 @@ def DetailView_M4(request,pk):
         edit_auth= True
     else:
         edit_auth=False
+
+    image_list = []
+    if pagepk.image2 != '':
+        image_list.append('/media/'+str(pagepk.image2))
+    if pagepk.image3 != '':
+        image_list.append('/media/'+str(pagepk.image3))
+    if pagepk.image4 != '':
+        image_list.append('/media/'+str(pagepk.image4))
     
     if Mission_4.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_4.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
@@ -192,6 +228,7 @@ def DetailView_M4(request,pk):
         "edit_auth" : edit_auth,
         "the_prev" : the_prev,
         "the_next" : the_next,
+        "image_list" : image_list,
     }
     return render(request, 'board/detail.html', context)
 
@@ -203,6 +240,14 @@ def DetailView_M5(request,pk):
         edit_auth= True
     else:
         edit_auth=False
+    
+    image_list = []
+    if pagepk.image2 != '':
+        image_list.append('/media/'+str(pagepk.image2))
+    if pagepk.image3 != '':
+        image_list.append('/media/'+str(pagepk.image3))
+    if pagepk.image4 != '':
+        image_list.append('/media/'+str(pagepk.image4))
     
     if Mission_5.objects.filter(pk__lt=pk).order_by('-pk').first() == None and Mission_5.objects.filter(pk__gt=pk).order_by('-pk').first() == None:
         the_prev = pk
@@ -227,6 +272,7 @@ def DetailView_M5(request,pk):
         "edit_auth" : edit_auth,
         "the_prev" : the_prev,
         "the_next" : the_next,
+        "image_list" : image_list,
     }
     return render(request, 'board/detail.html', context)
 
@@ -250,7 +296,7 @@ def mission_show(request):
         if listall[i].image1 == '':
             thumbnail_imagesrc1.append("/static/board/img/nothumnail.png")
         else:
-            thumbnail_imagesrc1.append(str(listall[i].image1))
+            thumbnail_imagesrc1.append("/media/"+str(listall[i].image1))
         page_src.append('/detail/M'+input_val+'/'+str(listall[i].id))
 
     context={
@@ -283,7 +329,7 @@ def mission_show_semi(request):
         if listall[i].image1 == '':
             thumbnail_imagesrc1.append("/static/board/img/nothumnail.png")
         else:
-            thumbnail_imagesrc1.append(str(listall[i].image1))
+            thumbnail_imagesrc1.append("/media/"+str(listall[i].image1))
         page_src.append('/detail/M'+input_val+'/'+str(listall[i].id))
 
     context={
