@@ -221,6 +221,7 @@
             name="team_name"
             value=""
             maxlength="17"
+            required
           />
           <label class="labelClass" for="id_team_members">팀원</label>
           <input
@@ -230,6 +231,7 @@
             name="team_members"
             value=""
             maxlength="17"
+            required
           />
           <label class="labelClass" for="id_mission">미션 설명</label>
 
@@ -239,6 +241,7 @@
             id="id_mission"
             name="mission"
             maxlength="600"
+            required
           ></textarea>
 
           <div class="main__submethod">
@@ -344,6 +347,7 @@
           </div>
         </form>
       </section>
+      <div class="confirm-overlay"></div>
       <footer>
         <div class="footer-text up-text">
           ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
@@ -402,7 +406,10 @@
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
     });
-
+    $(".confirm-overlay").on("click",function(){
+      $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
+    })
     $(".submit-button").on("click", function () {
       $(".confirm").addClass("active");
       $(".confirm-overlay").fadeIn();
