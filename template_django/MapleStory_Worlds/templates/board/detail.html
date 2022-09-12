@@ -233,6 +233,15 @@
               {{mission | safe}}
             </div>
           </div>
+          <div class="content">
+            <div class="content__title">MISSION CERTIFICATION PHOTO</div>
+            <div class="content-line"></div>
+            <div class="content-img-box">
+              {% for image in image_list %}
+              <div class="content-img"><img src="{{image}}" alt="image" class="img"/></div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
         <div class="next-prev">
           <button class="move-button" onClick="location.href='./{{the_prev}}'">이전으로</button>
