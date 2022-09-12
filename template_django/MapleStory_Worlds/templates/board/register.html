@@ -368,6 +368,7 @@
           {% endif %}
         </form>
       </section>
+      <div class="confirm-overlay"></div>
       <footer>
         <div class="footer-text up-text">
           ㈜넥슨코리아 대표이사 이정헌 경기도 성남시 분당구 판교로 256번길 7
@@ -420,7 +421,10 @@
       $("#sidebar").addClass("active");
       $(".overlay").fadeIn();
     });
-
+    $(".confirm-overlay").on("click",function(){
+      $(".confirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
+    })
     $(".overlay").on("click", function () {
       $("#sidebar").removeClass("active");
       $(".overlay").fadeOut();
