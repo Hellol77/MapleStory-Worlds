@@ -12,6 +12,10 @@
     <title>MapleStory Worlds</title>
   </head>
   <body>
+    <div class="mobile-block">
+      <img src="{% static 'board/img/block.png' %}" />
+      <div class="mobile-block-text">더 큰 화면으로 접속해주세요..</div>
+    </div>
     <div class="wrap">
       <header>
         <div class="header__left">
@@ -195,18 +199,24 @@
             <div class="content__title">
               <div class="content__title-text">
                 TITLE
-                <span class="content__subtitle show mission1">
+                {% if tag == "M1" %}
+                <span class="content__subtitle mission1">
                   <!-- 조 이름과 제목 넣을곳 -->
                   첫 번째 미션 제출</span
-                ><span class="content__subtitle none mission2"
+                >{% elif tag == "M2" %}
+                <span class="content__subtitle mission2"
                   >두 번째 미션 제출</span
-                ><span class="content__subtitle none mission3"
+                >{% elif tag == "M3" %}
+                <span class="content__subtitle mission3"
                   >세 번째 미션 제출</span
-                ><span class="content__subtitle none mission4"
+                >{% elif tag == "M4" %}
+                <span class="content__subtitle mission4"
                   >네 번째 미션 제출</span
-                ><span class="content__subtitle none mission5"
+                >{% elif tag == "M5" %}
+                <span class="content__subtitle mission5"
                   >다섯 번째 미션 제출</span
                 >
+                {% endif %}
               </div>
               <!-- 수정 삭제 버튼 자신이 만든 게시글에서만 -->
 
@@ -374,5 +384,6 @@
       $(".loginconfirm").removeClass("active");
       $(".confirm-overlay").fadeOut();
     });
+    $("p").css("word-break","break-all");
   </script>
 </html>

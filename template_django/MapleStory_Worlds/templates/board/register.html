@@ -14,6 +14,10 @@
     <title>MapleStory Worlds</title>
   </head>
   <body>
+    <div class="mobile-block">
+      <img src="{% static 'board/img/block.png' %}" />
+      <div class="mobile-block-text">더 큰 화면으로 접속해주세요..</div>
+    </div>
     <div class="wrap">
       <header>
         <div class="header__left">
@@ -25,7 +29,7 @@
           {% else %}
           <a class="header__left__sub-title authenticated">미션 등록하기</a>
           {% endif %}
-          <a class="header__left__sub-title" href="../check">미션 확인하기</a>
+          <a class="header__left__sub-title" href="/check">미션 확인하기</a>
         </div>
         {% if user.is_active %}
         <!-- 로그인 완료 했을때 코드 -->
@@ -268,6 +272,7 @@
                   class="form-control file-input"
                   id="id_image1"
                   name="image1"
+                  accept="image/*"
                 />
                 <input
                   type="text"
@@ -280,13 +285,14 @@
               <div class="filebox">
                 <label for="id_image2">
                   <img class="file-label-img" src="{% static 'board/img/Link.png' %}" alt="upload" />
-                  미션 제출 2
+                  미션 제출1
                 </label>
                 <input
                   type="file"
                   class="form-control file-input"
                   id="id_image2"
                   name="image2"
+                  accept="image/*"
                 />
                 <input
                   type="text"
@@ -300,13 +306,14 @@
               <div class="filebox">
                 <label for="id_image3">
                   <img class="file-label-img" src="{% static 'board/img/Link.png' %}" alt="upload" />
-                  미션 제출 1
+                  미션 제출2
                 </label>
                 <input
                   type="file"
                   class="form-control file-input"
                   id="id_image3"
                   name="image3"
+                  accept="image/*"
                 />
                 <input
                   type="text"
@@ -319,13 +326,14 @@
               <div class="filebox">
                 <label for="id_image4">
                   <img class="file-label-img" src="{% static 'board/img/Link.png' %}" alt="upload" />
-                  미션 제출 3
+                  미션 제출3
                 </label>
                 <input
                   type="file"
                   class="form-control file-input"
                   id="id_image4"
                   name="image4"
+                  accept="image/*"
                 />
                 <input
                   type="text"
