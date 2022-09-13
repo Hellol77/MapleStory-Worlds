@@ -18,7 +18,7 @@
         <form action="" method="POST" class="section__form">
           {% csrf_token %}
           <div class="section__form-box">
-            <label for="">계정</label>
+            <label for="{{ form.message.id_user_id }}">계정</label>
             <input
               type="text"
               class="form-control section__form-input"
@@ -37,6 +37,7 @@
           </div>
           <button class="submit-button" type="submit">로그인</button>
         </form>
+
       </section>
       <footer>
         <div class="footer-text up-text">
