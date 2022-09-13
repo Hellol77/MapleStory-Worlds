@@ -28,7 +28,7 @@ class PostForm_1(forms.ModelForm):
         widget=CKEditorWidget(
         attrs={'class': 'form-control',}), 
         error_messages={'required': '미션설명을 입력해주세요.'},
-        max_length=600,
+#        max_length=600,
         label='미션설명'
     )
 
@@ -53,11 +53,18 @@ class PostForm_2(forms.ModelForm):
         max_length=40,
         label='팀원'
     )
+    # mission = forms.CharField(
+    #     widget=forms.TextInput(
+    #     attrs={'class': 'form-control',}), 
+    #     error_messages={'required': '미션설명을 입력해주세요.'},
+    #     max_length=600,
+    #     label='미션설명'
+    # )
     mission = forms.CharField(
-        widget=forms.TextInput(
+        widget=CKEditorWidget(
         attrs={'class': 'form-control',}), 
         error_messages={'required': '미션설명을 입력해주세요.'},
-        max_length=600,
+#        max_length=600,
         label='미션설명'
     )
 
@@ -82,12 +89,19 @@ class PostForm_3(forms.ModelForm):
         label='팀원'
     )
     mission = forms.CharField(
-        widget=forms.TextInput(
+        widget=CKEditorWidget(
         attrs={'class': 'form-control',}), 
         error_messages={'required': '미션설명을 입력해주세요.'},
-        max_length=600,
+#        max_length=600,
         label='미션설명'
     )
+    # mission = forms.CharField(
+    #     widget=forms.TextInput(
+    #     attrs={'class': 'form-control',}), 
+    #     error_messages={'required': '미션설명을 입력해주세요.'},
+    #     max_length=600,
+    #     label='미션설명'
+    # )
 
     class Meta:
         model = Mission_3
@@ -110,12 +124,19 @@ class PostForm_4(forms.ModelForm):
         label='팀원'
     )
     mission = forms.CharField(
-        widget=forms.TextInput(
+        widget=CKEditorWidget(
         attrs={'class': 'form-control',}), 
         error_messages={'required': '미션설명을 입력해주세요.'},
-        max_length=600,
+#        max_length=600,
         label='미션설명'
     )
+    # mission = forms.CharField(
+    #     widget=forms.TextInput(
+    #     attrs={'class': 'form-control',}), 
+    #     error_messages={'required': '미션설명을 입력해주세요.'},
+    #     max_length=600,
+    #     label='미션설명'
+    # )
 
     class Meta:
         model = Mission_4
@@ -138,12 +159,19 @@ class PostForm_5(forms.ModelForm):
         label='팀원'
     )
     mission = forms.CharField(
-        widget=forms.TextInput(
+        widget=CKEditorWidget(
         attrs={'class': 'form-control',}), 
         error_messages={'required': '미션설명을 입력해주세요.'},
-        max_length=600,
+#        max_length=600,
         label='미션설명'
     )
+    # mission = forms.CharField(
+    #     widget=forms.TextInput(
+    #     attrs={'class': 'form-control',}), 
+    #     error_messages={'required': '미션설명을 입력해주세요.'},
+    #     max_length=600,
+    #     label='미션설명'
+    # )
 
     class Meta:
         model = Mission_5
