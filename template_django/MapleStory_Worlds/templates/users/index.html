@@ -19,7 +19,9 @@
     <div class="wrap">
       <header>
         <div class="header__left">
-          <a class="header__left__title" href="/">MapleStory Worlds Super Hackathon</a>
+          <a class="header__left__title" href="/"
+            >MapleStory Worlds Super Hackathon</a
+          >
           {% if user.is_authenticated %}
           <a class="header__left__sub-title" href="register">미션 등록하기</a>
           {% else %}
@@ -48,11 +50,32 @@
               슈퍼해커톤 {{user.get_level_display}}
             </div>
             <div class="sidebar__main-line"></div>
-            {% if link1 == "None" %}<a class="sidebar__main-button color1 missiontab">첫 번째 미션</a>{% else %}<a class="sidebar__main-button color1" href="{{link1}}">첫 번째 미션</a>{% endif %}
-            {% if link2 == "None" %}<a class="sidebar__main-button color2 missiontab">두 번째 미션</a>{% else %}<a class="sidebar__main-button color2" href="{{link2}}">두 번째 미션</a>{% endif %}
-            {% if link3 == "None" %}<a class="sidebar__main-button color3 missiontab">세 번째 미션</a>{% else %}<a class="sidebar__main-button color3" href="{{link3}}">세 번째 미션</a>{% endif %}
-            {% if link4 == "None" %}<a class="sidebar__main-button color4 missiontab">네 번째 미션</a>{% else %}<a class="sidebar__main-button color4" href="{{link4}}">네 번째 미션</a>{% endif %}
-            {% if link5 == "None" %}<a class="sidebar__main-button color5 missiontab">다섯 번째 미션</a>{% else %}<a class="sidebar__main-button color5" href="{{link5}}">다섯 번째 미션</a>{% endif %}
+            {% if link1 == "None" %}<a
+              class="sidebar__main-button color1 missiontab"
+              >첫 번째 미션</a
+            >{% else %}<a class="sidebar__main-button color1" href="{{link1}}"
+              >첫 번째 미션</a
+            >{% endif %} {% if link2 == "None" %}<a
+              class="sidebar__main-button color2 missiontab"
+              >두 번째 미션</a
+            >{% else %}<a class="sidebar__main-button color2" href="{{link2}}"
+              >두 번째 미션</a
+            >{% endif %} {% if link3 == "None" %}<a
+              class="sidebar__main-button color3 missiontab"
+              >세 번째 미션</a
+            >{% else %}<a class="sidebar__main-button color3" href="{{link3}}"
+              >세 번째 미션</a
+            >{% endif %} {% if link4 == "None" %}<a
+              class="sidebar__main-button color4 missiontab"
+              >네 번째 미션</a
+            >{% else %}<a class="sidebar__main-button color4" href="{{link4}}"
+              >네 번째 미션</a
+            >{% endif %} {% if link5 == "None" %}<a
+              class="sidebar__main-button color5 missiontab"
+              >다섯 번째 미션</a
+            >{% else %}<a class="sidebar__main-button color5" href="{{link5}}"
+              >다섯 번째 미션</a
+            >{% endif %}
             <!-- <a class="sidebar__main-button color2 missiontab" href="{{link2}}">두 번째 미션</a>
             <a class="sidebar__main-button color3 missiontab" href="{{link3}}">세 번째 미션</a>
             <a class="sidebar__main-button color4 missiontab" href="{{link4}}">네 번째 미션</a>
@@ -75,48 +98,491 @@
             <input type="radio" id="tab-2" name="show" />
             <input type="radio" id="tab-3" name="show" />
             <input type="radio" id="tab-4" name="show" />
+            <input type="radio" id="tab-5" name="show" />
 
             <div class="tab">
               <label for="tab-1"></label>
               <label for="tab-2"></label>
               <label for="tab-3"></label>
               <label for="tab-4"></label>
+              <label for="tab-5"></label>
             </div>
             <div class="section-line"></div>
             <div class="content">
+              {% comment %} 첫번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div>최근 게시물</div>
+                <div class="recent-content">최근 게시글</div>
                 <div class="content-main">
-                  <!-- <a class="content-box" href="detail.html">
-                    comming soon ... <img class="content-img" src="img/test.jpeg" alt="img" />
-                  </a> -->
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
                 </div>
               </div>
+              {% comment %} 두번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div>최근 게시물</div>
+                <div class="recent-content">최근 게시글</div>
                 <div class="content-main">
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
                 </div>
               </div>
+              {% comment %} 세번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div>최근 게시물</div>
+                <div class="recent-content">최근 게시글</div>
                 <div class="content-main">
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
                 </div>
               </div>
+              {% comment %} 네번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div>최근 게시물</div>
+                <div class="recent-content">최근 게시글</div>
                 <div class="content-main">
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
-                  <a class="content-box">comming soon ...</a>
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
+                </div>
+              </div>
+              {% comment %} 다섯 번째 버튼 {% endcomment %}
+              <div class="content-dis">
+                <div class="recent-content">최근 게시글</div>
+                <div class="content-main">
+                  <a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  ><a class="main-gallery__box" href="${page_src[i]}"
+                    ><div class="main-gallery-img">
+                      <img
+                        class="main-gallery-img"
+                        src="${thumbnail_imagesrc1[i]}"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="main-gallery-text">
+                      <div class="main-gallery-team">
+                        <span>팀명 ${team_name[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_name}}</span
+                        >
+                      </div>
+                      <div class="main-gallery-name">
+                        <span>팀원 ${team_members[i]}</span
+                        ><span class="main-gallery-detail"
+                          >{{list.team_members}}</span
+                        >
+                      </div>
+                    </div></a
+                  >
                 </div>
               </div>
             </div>
@@ -140,7 +606,6 @@
             <div class="confirm-answer-omT ok2">확인</div>
           </div>
         </div>
-
       </section>
       <footer>
         <div class="footer-text up-text">
