@@ -614,10 +614,12 @@ def mission_edit_M1(request, pk):
 
     else:
         if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            group = request.user.group
             context = {
                 'team_name' : pagepk.team_name,
                 'team_members' : pagepk.team_members,
-                'mission' : pagepk.mission
+                'mission' : pagepk.mission,
+                "group": group,
             }
             return render(request, "board/register.html", context)
         else:
@@ -635,10 +637,12 @@ def mission_edit_M2(request, pk):
 
     else:
         if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            group = request.user.group
             context = {
                 'team_name' : pagepk.team_name,
                 'team_members' : pagepk.team_members,
-                'mission' : pagepk.mission
+                'mission' : pagepk.mission,
+                "group": group,
             }
             return render(request, "board/register.html", context)
         else:
@@ -656,10 +660,12 @@ def mission_edit_M3(request, pk):
 
     else:
         if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            group = request.user.group
             context = {
                 'team_name' : pagepk.team_name,
                 'team_members' : pagepk.team_members,
-                'mission' : pagepk.mission
+                'mission' : pagepk.mission,
+                "group": group,
             }
             return render(request, "board/register.html", context)
         else:
@@ -677,10 +683,12 @@ def mission_edit_M4(request, pk):
 
     else:
         if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            group = request.user.group
             context = {
                 'team_name' : pagepk.team_name,
                 'team_members' : pagepk.team_members,
-                'mission' : pagepk.mission
+                'mission' : pagepk.mission,
+                "group": group,
             }
             return render(request, "board/register.html", context)
         else:
@@ -698,10 +706,12 @@ def mission_edit_M5(request, pk):
 
     else:
         if pagepk.user_id == request.user or request.user.level == '0' or request.user.level == '1':
+            group = request.user.group
             context = {
                 'team_name' : pagepk.team_name,
                 'team_members' : pagepk.team_members,
-                'mission' : pagepk.mission
+                'mission' : pagepk.mission,
+                "group": group,
             }
             return render(request, "board/register.html", context)
         else:
