@@ -17,6 +17,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
 form {
@@ -388,7 +389,6 @@ input::placeholder {
   font-weight: 700;
 }
 
-
 .moveconfirm {
   position: fixed;
   display: none;
@@ -456,7 +456,7 @@ input::placeholder {
   background-color: #ffb62a;
   color: black;
   width: 50%;
-  margin-left:70px;
+  margin-left: 70px;
   margin-top: 20px;
   border: 1px solid #ffffff;
   border-radius: 32px;
@@ -465,7 +465,6 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
-
 
 @media screen and (max-width: 767px) {
   .form {

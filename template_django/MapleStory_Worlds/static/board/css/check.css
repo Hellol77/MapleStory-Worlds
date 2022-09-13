@@ -13,11 +13,13 @@ body * {
   flex-direction: column;
   align-items: center;
 }
+
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 960px;
+  flex: 1;
 }
 
 .main-title-box {
@@ -255,7 +257,6 @@ form {
   }
 }
 
-
 .moveconfirm {
   position: fixed;
   display: none;
@@ -323,7 +324,7 @@ form {
   background-color: #ffb62a;
   color: black;
   width: 50%;
-  margin-left:70px;
+  margin-left: 70px;
   margin-top: 20px;
   border: 1px solid #ffffff;
   border-radius: 32px;
