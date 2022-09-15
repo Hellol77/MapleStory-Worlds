@@ -111,483 +111,152 @@
             <div class="content">
               {% comment %} 첫번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div class="recent-content">최근 게시글</div>
-                <div class="content-main">
-                  <a class="main-gallery__box" href="${page_src[i]}"
+              <div class="recent-content">최근 게시글</div>
+              <div class="content-main">
+              {% for feature in mission1 %}
+                  <a class="main-gallery__box" href="/detail/M1/{{feature.pk}}"
                     ><div class="main-gallery-img">
                       <img
                         class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
+                        src="{{feature.image1}}"
                         alt="img"
                       />
                     </div>
                     <div class="main-gallery-text">
                       <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
+                        <span>팀명</span>
+                        <span class="main-gallery-detail"
+                          >{{feature.team_name}}</span>
                       </div>
                       <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
+                        <span>팀원</span>
+                        <span class="main-gallery-detail">
+                          {{feature.team_members}}</span>
                       </div>
-                    </div></a
-                  >
-                  <a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
                     </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  >
+                  </a>
+                {% endfor %}
                 </div>
               </div>
               {% comment %} 두번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div class="recent-content">최근 게시글</div>
-                <div class="content-main">
-                  <a class="main-gallery__box" href="${page_src[i]}"
+              <div class="recent-content">최근 게시글</div>
+              <div class="content-main">
+              {% for feature in mission2 %}
+                  <a class="main-gallery__box" href="/detail/M2/{{feature.pk}}"
                     ><div class="main-gallery-img">
                       <img
                         class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
+                        src="{{feature.image1}}"
                         alt="img"
                       />
                     </div>
                     <div class="main-gallery-text">
                       <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
+                        <span>팀명</span>
+                        <span class="main-gallery-detail"
+                          >{{feature.team_name}}</span>
                       </div>
                       <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
+                        <span>팀원</span>
+                        <span class="main-gallery-detail">
+                          {{feature.team_members}}</span>
                       </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
                     </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  >
+                  </a>
+                {% endfor %}
                 </div>
               </div>
               {% comment %} 세번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div class="recent-content">최근 게시글</div>
-                <div class="content-main">
-                  <a class="main-gallery__box" href="${page_src[i]}"
+              <div class="recent-content">최근 게시글</div>
+              <div class="content-main">
+              {% for feature in mission3 %}
+                  <a class="main-gallery__box" href="/detail/M3/{{feature.pk}}"
                     ><div class="main-gallery-img">
                       <img
                         class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
+                        src="{{feature.image1}}"
                         alt="img"
                       />
                     </div>
                     <div class="main-gallery-text">
                       <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
+                        <span>팀명</span>
+                        <span class="main-gallery-detail"
+                          >{{feature.team_name}}</span>
                       </div>
                       <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
+                        <span>팀원</span>
+                        <span class="main-gallery-detail">
+                          {{feature.team_members}}</span>
                       </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
                     </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  >
+                  </a>
+                {% endfor %}
                 </div>
               </div>
               {% comment %} 네번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div class="recent-content">최근 게시글</div>
-                <div class="content-main">
-                  <a class="main-gallery__box" href="${page_src[i]}"
+              <div class="recent-content">최근 게시글</div>
+              <div class="content-main">
+              {% for feature in mission4 %}
+                  <a class="main-gallery__box" href="/detail/M4/{{feature.pk}}"
                     ><div class="main-gallery-img">
                       <img
                         class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
+                        src="{{feature.image1}}"
                         alt="img"
                       />
                     </div>
                     <div class="main-gallery-text">
                       <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
+                        <span>팀명</span>
+                        <span class="main-gallery-detail"
+                          >{{feature.team_name}}</span>
                       </div>
                       <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
+                        <span>팀원</span>
+                        <span class="main-gallery-detail">
+                          {{feature.team_members}}</span>
                       </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
                     </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  >
+                  </a>
+                {% endfor %}
                 </div>
               </div>
-              {% comment %} 다섯 번째 버튼 {% endcomment %}
+              {% comment %} 다섯번째 버튼 {% endcomment %}
               <div class="content-dis">
-                <div class="recent-content">최근 게시글</div>
-                <div class="content-main">
-                  <a class="main-gallery__box" href="${page_src[i]}"
+              <div class="recent-content">최근 게시글</div>
+              <div class="content-main">
+              {% for feature in mission5 %}
+                  <a class="main-gallery__box" href="/detail/M5/{{feature.pk}}"
                     ><div class="main-gallery-img">
                       <img
                         class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
+                        src="{{feature.image1}}"
                         alt="img"
                       />
                     </div>
                     <div class="main-gallery-text">
                       <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
+                        <span>팀명</span>
+                        <span class="main-gallery-detail"
+                          >{{feature.team_name}}</span>
                       </div>
                       <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
+                        <span>팀원</span>
+                        <span class="main-gallery-detail">
+                          {{feature.team_members}}</span>
                       </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
                     </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  ><a class="main-gallery__box" href="${page_src[i]}"
-                    ><div class="main-gallery-img">
-                      <img
-                        class="main-gallery-img"
-                        src="${thumbnail_imagesrc1[i]}"
-                        alt="img"
-                      />
-                    </div>
-                    <div class="main-gallery-text">
-                      <div class="main-gallery-team">
-                        <span>팀명 ${team_name[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_name}}</span
-                        >
-                      </div>
-                      <div class="main-gallery-name">
-                        <span>팀원 ${team_members[i]}</span
-                        ><span class="main-gallery-detail"
-                          >{{list.team_members}}</span
-                        >
-                      </div>
-                    </div></a
-                  >
+                  </a>
+                {% endfor %}
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>   
 
         <div class="moveconfirm">
           <div class="confirm-title">미션 이동</div>
