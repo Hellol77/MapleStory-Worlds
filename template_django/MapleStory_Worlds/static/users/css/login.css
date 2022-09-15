@@ -90,7 +90,17 @@ label {
   z-index: 998;
   width: 100vw;
   height: 100vh;
+  animation: fadein 0.5s;
+  transition-delay: all 0.3s;
   background-color: rgba(0, 0, 0, 0.3);
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .confirm-title {
   margin-top: 10px;

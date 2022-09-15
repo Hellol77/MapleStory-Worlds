@@ -37,7 +37,7 @@
               maxlength="17"
             />
           </div>
-          <button class="submit-button" type="submit" onclick="">로그인</button>
+          <button class="submit-button" type="submit">로그인</button>
         </form>
         {% if messages %} {% for message in messages %}
         <div class="moveconfirm active">
@@ -85,6 +85,10 @@
   </body>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
+    {% comment %} $(".submit-button").on("click", function (e) {
+      $(".confirm-overlay").fadeIn();
+      console.log(12312312);
+    }); {% endcomment %}
     $(".ok").on("click", function () {
       $(".moveconfirm").removeClass("active");
       $(".moveconfirm").addClass("none");
