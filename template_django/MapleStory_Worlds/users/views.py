@@ -4,10 +4,10 @@ from .forms import LoginForm
 from board.models import Mission_1, Mission_2, Mission_3, Mission_4, Mission_5
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from users.decorators import *
+from django.utils.decorators import method_decorator
 
 # Create your views here.
-
-from django.contrib.auth.hashers import make_password
 
 def main_view(request):
     if request.user.is_authenticated:
@@ -87,6 +87,7 @@ def main_view(request):
     }
     return render(request, 'users/index.html', context)
 
+@method_decorator(logout_message_required, name='dispatch')
 class LoginView(FormView):
     template_name = 'users/login.html'
     form_class = LoginForm

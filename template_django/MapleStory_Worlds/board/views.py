@@ -1,9 +1,14 @@
+from random import random
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Mission_1, Mission_2, Mission_3, Mission_4, Mission_5
 from .forms import PostForm_1, PostForm_2, PostForm_3, PostForm_4, PostForm_5
 from django.http import JsonResponse
+from django.utils.decorators import method_decorator
+from users.decorators import *
+import random
 
 # Create your views here.
+@login_message_required
 def PostUpload(request):
     if request.method == 'POST':
         team_name = request.POST['team_name']
@@ -601,7 +606,7 @@ def mission_delete_M5(request, pk):
         return redirect('/check')
 
 
-
+@login_message_required
 def mission_edit_M1(request, pk):
     pagepk = get_object_or_404(Mission_1, pk=pk)
     if request.method == "POST":
@@ -625,6 +630,7 @@ def mission_edit_M1(request, pk):
         else:
             return redirect('/')
 
+@login_message_required
 def mission_edit_M2(request, pk):
     pagepk = get_object_or_404(Mission_2, pk=pk)
     if request.method == "POST":
@@ -648,6 +654,7 @@ def mission_edit_M2(request, pk):
         else:
             return redirect('/')
 
+@login_message_required
 def mission_edit_M3(request, pk):
     pagepk = get_object_or_404(Mission_3, pk=pk)
     if request.method == "POST":
@@ -671,6 +678,7 @@ def mission_edit_M3(request, pk):
         else:
             return redirect('/')
 
+@login_message_required
 def mission_edit_M4(request, pk):
     pagepk = get_object_or_404(Mission_4, pk=pk)
     if request.method == "POST":
@@ -694,6 +702,7 @@ def mission_edit_M4(request, pk):
         else:
             return redirect('/')
 
+@login_message_required
 def mission_edit_M5(request, pk):
     pagepk = get_object_or_404(Mission_5, pk=pk)
     if request.method == "POST":
