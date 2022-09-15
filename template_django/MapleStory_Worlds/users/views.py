@@ -68,7 +68,11 @@ def main_view(request):
             mission5[i].image1 = "/static/board/img/nothumnail.png"
         else:
             mission5[i].image1 = "/media/"+str(mission5[i].image1)
-
+    if len(mission1) == 0: mission1 = "None"
+    if len(mission2) == 0: mission2 = "None"
+    if len(mission3) == 0: mission3 = "None"
+    if len(mission4) == 0: mission4 = "None"
+    if len(mission5) == 0: mission1 = "None"
     context  = {
         "link1":link1,
         "link2":link2,

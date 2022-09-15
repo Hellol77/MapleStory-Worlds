@@ -255,6 +255,15 @@ form {
     position: absolute;
     z-index: 1000;
   }
+  section {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
 }
 
 .moveconfirm {
