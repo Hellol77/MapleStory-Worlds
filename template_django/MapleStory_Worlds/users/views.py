@@ -3,9 +3,11 @@ from django.views.generic import FormView
 from .forms import LoginForm
 from board.models import Mission_1, Mission_2, Mission_3, Mission_4, Mission_5
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponse
+from django.contrib import messages
 
 # Create your views here.
+
+from django.contrib.auth.hashers import make_password
 
 def main_view(request):
     if request.user.is_authenticated:
@@ -38,6 +40,10 @@ def main_view(request):
         "link4":link4,
         "link5":link5,
     }
+    a = "abcd"
+    hashed_pass = make_password(a)
+    print(hashed_pass)
+
     return render(request, 'users/index.html', context)
 
 class LoginView(FormView):
@@ -57,8 +63,8 @@ class LoginView(FormView):
         return super().form_valid(form)
 
     def form_invalid(self, form: LoginForm):
-        
-        return HttpResponse("form is invalid.. this is just an HttpResponse object")
+        messages.error(self.request, '로그인에 실패하였습니다.', extra_tags='danger')
+        return super().form_invalid(form)
 
 
 
