@@ -82,8 +82,10 @@ label {
 .active {
   display: flex;
 }
-.confirm-overlay {
+.none {
   display: none;
+}
+.confirm-overlay {
   position: fixed;
   z-index: 998;
   width: 100vw;
@@ -107,7 +109,7 @@ label {
   background-color: #ffb62a;
   color: black;
   width: 50%;
-  margin-left:70px;
+  margin-left: 70px;
   margin-top: 20px;
   border: 1px solid #ffffff;
   border-radius: 32px;

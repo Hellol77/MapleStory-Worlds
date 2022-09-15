@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,22 +11,21 @@
     <title>MapleStoryWorld</title>
   </head>
   <body>
-    <div class="confirm-overlay"></div>
     <div class="wrap">
       <section>
-        <div class="section__title">MapleStory Worlds Super Hackathon</div>
+        <a class="section__title" href="/">MapleStory Worlds Super Hackathon</a>
         <div class="section-line"></div>
         <form action="" method="POST" class="section__form">
           {% csrf_token %}
           <div class="section__form-box">
-            <label for="{{ form.message.id_user_id }}">
-              계정</label>
+            <label for="{{ form.message.id_user_id }}"> 계정</label>
             <input
               type="text"
               class="form-control section__form-input"
               id="id_user_id"
               name="user_id"
-              maxlength="17" />
+              maxlength="17"
+            />
           </div>
           <div class="section__form-box">
             <label for="">비밀번호</label>
@@ -35,22 +34,24 @@
               class="form-control section__form-input"
               id="id_password"
               name="password"
-              maxlength="17" />
+              maxlength="17"
+            />
           </div>
           <button class="submit-button" type="submit" onclick="">로그인</button>
         </form>
-        {% if messages %}
+        {% if messages %} {% for message in messages %}
         <div class="moveconfirm active">
-          <div class="confirm-title">미션 이동</div>
+          <div class="confirm-title">로그인 오류</div>
           <div class="confirm-line"></div>
-          <div class="confirm-message">등록된 미션이 없습니다.</div>
+          <div class="confirm-message">
+            아이디 혹은 비밀번호를 확인해주세요.
+          </div>
           <div class="confirm-answer-box">
             <div class="confirm-answer-omT ok">확인</div>
           </div>
         </div>
-        {% endif %}
-        
-
+        <div class="confirm-overlay"></div>
+        {% endfor %} {% endif %}
       </section>
       <footer>
         <div class="footer-text up-text">
@@ -69,8 +70,16 @@
           멋쟁이사자처럼 All rights reserved.
         </div>
         <div class="footer__img-box">
-          <a href= "https://maplestoryworlds.nexon.com/play/" target="_blank"><img src="{% static 'users/img/nexon.png' %}" alt="NEXON" /></a>
-          <a href= "https://www.likelion.net/" target="_blank"><img src="{% static 'users/img/likelion.png' %}" alt="likelion" class="likelion-img" /></a>        </div>
+          <a href="https://maplestoryworlds.nexon.com/play/" target="_blank"
+            ><img src="{% static 'users/img/nexon.png' %}" alt="NEXON"
+          /></a>
+          <a href="https://www.likelion.net/" target="_blank"
+            ><img
+              src="{% static 'users/img/likelion.png' %}"
+              alt="likelion"
+              class="likelion-img"
+          /></a>
+        </div>
       </footer>
     </div>
   </body>
@@ -78,6 +87,7 @@
   <script>
     $(".ok").on("click", function () {
       $(".moveconfirm").removeClass("active");
+      $(".moveconfirm").addClass("none");
       $(".confirm-overlay").fadeOut();
     });
   </script>
