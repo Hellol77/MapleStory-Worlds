@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from .choice import *
 from ckeditor.fields import RichTextField
+import os
 
 # Create your models here.
 class Mission_1(models.Model):
@@ -26,6 +27,17 @@ class Mission_1(models.Model):
 
     def __str__(self):
         return str(self.user_id)
+
+    def delete(self, *args, **kargs):
+        if self.image1:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image1.path))
+        if self.image2:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image2.path))
+        if self.image3:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image3.path))
+        if self.image4:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image4.path))
+        super(Mission_1, self).delete(*args, **kargs)
 
     class Meta:
         db_table = 'Mission_1'
@@ -54,6 +66,17 @@ class Mission_2(models.Model):
     def __str__(self):
         return str(self.user_id)
 
+    def delete(self, *args, **kargs):
+        if self.image1:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image1.path))
+        if self.image2:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image2.path))
+        if self.image3:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image3.path))
+        if self.image4:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image4.path))
+        super(Mission_2, self).delete(*args, **kargs)
+
     class Meta:
         db_table = 'Mission_2'
         verbose_name = 'Mission_2'
@@ -80,6 +103,17 @@ class Mission_3(models.Model):
     
     def __str__(self):
         return str(self.user_id)
+
+    def delete(self, *args, **kargs):
+        if self.image1:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image1.path))
+        if self.image2:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image2.path))
+        if self.image3:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image3.path))
+        if self.image4:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image4.path))
+        super(Mission_3, self).delete(*args, **kargs)
 
     class Meta:
         db_table = 'Mission_3'
@@ -109,6 +143,17 @@ class Mission_4(models.Model):
     def __str__(self):
         return str(self.user_id)
 
+    def delete(self, *args, **kargs):
+        if self.image1:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image1.path))
+        if self.image2:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image2.path))
+        if self.image3:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image3.path))
+        if self.image4:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image4.path))
+        super(Mission_4, self).delete(*args, **kargs)
+
     class Meta:
         db_table = 'Mission_4'
         verbose_name = 'Mission_4'
@@ -135,6 +180,17 @@ class Mission_5(models.Model):
 
     def __str__(self):
         return str(self.user_id)
+
+    def delete(self, *args, **kargs):
+        if self.image1:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image1.path))
+        if self.image2:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image2.path))
+        if self.image3:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image3.path))
+        if self.image4:
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image4.path))
+        super(Mission_5, self).delete(*args, **kargs)
 
     class Meta:
         db_table = 'Mission_5'
