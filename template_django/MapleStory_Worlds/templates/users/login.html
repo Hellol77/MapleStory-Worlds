@@ -11,6 +11,7 @@
     <title>MapleStoryWorld</title>
   </head>
   <body>
+    <div class="confirm-overlay"></div>
     <div class="wrap">
       <section>
         <div class="section__title">MapleStory Worlds Super Hackathon</div>
@@ -18,7 +19,8 @@
         <form action="" method="POST" class="section__form">
           {% csrf_token %}
           <div class="section__form-box">
-            <label for="{{ form.message.id_user_id }}">계정</label>
+            <label for="{{ form.message.id_user_id }}">
+              계정</label>
             <input
               type="text"
               class="form-control section__form-input"
@@ -35,8 +37,19 @@
               name="password"
               maxlength="17" />
           </div>
-          <button class="submit-button" type="submit">로그인</button>
+          <button class="submit-button" type="submit" onclick="">로그인</button>
         </form>
+        {% if messages %}
+        <div class="moveconfirm active">
+          <div class="confirm-title">미션 이동</div>
+          <div class="confirm-line"></div>
+          <div class="confirm-message">등록된 미션이 없습니다.</div>
+          <div class="confirm-answer-box">
+            <div class="confirm-answer-omT ok">확인</div>
+          </div>
+        </div>
+        {% endif %}
+        
 
       </section>
       <footer>
@@ -61,4 +74,11 @@
       </footer>
     </div>
   </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(".ok").on("click", function () {
+      $(".moveconfirm").removeClass("active");
+      $(".confirm-overlay").fadeOut();
+    });
+  </script>
 </html>
